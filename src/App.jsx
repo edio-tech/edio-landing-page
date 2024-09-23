@@ -10,8 +10,8 @@ const App = () =>
 	return (
 		<Routes>
 			<Route path="/" element={<Layout />}>
-				<Route path='/' element={<Landing />} />
-				<Route path='/choose' element={<ChooseAplication />} />
+				<Route path="/" element={<Landing />} />
+				<Route path="/choose" element={<ChooseAplication />} />
 			</Route>
 		</Routes>
 	)

@@ -1,10 +1,10 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 const HeaderShownContext = createContext();
 
 export const HeaderShownProvider = ({ children }) =>
 {
-    const [headerShown, setHeaderShown] = useState(false);
+    const [headerShown, setHeaderShown] = useState(true);
 
     return (
         <HeaderShownContext.Provider value={{ headerShown, setHeaderShown }}>

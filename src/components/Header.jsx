@@ -1,9 +1,17 @@
 
+import './Header.css';
 
 const Header = () =>
 {
     return (
-        <div>Header</div>
+        <header className="header-container">
+            <div className="header-home-link">
+                
+            </div>
+            <div className="header-choose-aplication">
+
+            </div>
+        </header>
     )
 }
 export default Header;

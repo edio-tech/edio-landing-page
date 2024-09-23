@@ -4,13 +4,16 @@ import { createRoot } from 'react-dom/client';
 
 import App from './App.jsx';
 import './index.css';
+import { HeaderShownProvider } from './context/HeaderShownProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-      </Routes>
-    </BrowserRouter>
+    <HeaderShownProvider>
+      <BrowserRouter>
+        <Routes>
+        <Route path="/*" element={<App />} />
+        </Routes>
+      </BrowserRouter>
+    </HeaderShownProvider>
   </StrictMode>
 );

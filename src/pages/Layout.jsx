@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import useHeaderShown from "../hooks/useHeaderShown";
@@ -10,6 +11,7 @@ const Layout = ({ children }) =>
         <div>
             {headerShown && <Header />}
             <main>
+                <Outlet />
                 {children}
             </main>
             <Footer />
