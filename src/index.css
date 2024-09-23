@@ -8,13 +8,24 @@
   --clr-background-accent: #2D2C2A;
   --clr-text-accent: #F0EDE6;
 
+  --clr-white: #FFFFFF;
+  --clr-black: #000000;
+
   --ff-primary: 'Montserrat', sans-serif;
 
-  --fs-h1: 60px;
-  --fs-h2: 35px;
-  --fs-body: 25px;
-  --fs-button: 30px;
-  --fs-header: 40px;
+  --mobile-font-size-scale: 0.667;
+
+  --fs-h1: 40px;
+  --fs-h2: 25px;
+  --fs-body: 16px;
+  --fs-button: 20px;
+  --fs-header: 28px;
+
+  --fs-h1-mobile: calc(var(--fs-h1) * var(--mobile-font-size-scale));
+  --fs-h2-mobile: calc(var(--fs-h2) * var(--mobile-font-size-scale));
+  --fs-body-mobile: calc(var(--fs-body) * var(--mobile-font-size-scale));
+  --fs-button-mobile: calc(var(--fs-button) * var(--mobile-font-size-scale));
+  --fs-header-mobile: calc(var(--fs-header) * var(--mobile-font-size-scale));
 
   --fw-light: 300;
   --fw-regular: 400;
@@ -111,3 +122,45 @@ h2 {
   font-size: var(--fs-h2);
   font-weight: var(--fw-semibold);
 }
+
+button {
+  background-color: var(--clr-accent);
+  color: var(--clr-text-accent);
+  font-size: var(--fs-button);
+  font-weight: var(--fw-medium);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 50vw;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+button:hover {
+  background-color: var(--clr-white);
+  color: var(--clr-accent);
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.alt-button {
+  background-color: var(--clr-white);
+  color: var(--clr-accent);
+}
+.alt-button:hover {
+  background-color: var(--clr-accent);
+  color: var(--clr-white);
+}
+
+.highlight-word {
+  color: var(--clr-brand);
+  position: relative;
+  display: inline-block;
+}
+/* .highlight-word::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--clr-brand);
+} */

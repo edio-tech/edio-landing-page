@@ -17,7 +17,7 @@
 }
 
 .header-home-link-logo {
-    width: 4rem;
+    width: 2.75rem;
     aspect-ratio: 53/47;
 }
 
@@ -36,7 +36,7 @@
     flex-direction: row;
     align-items: center;
 
-    gap: 3rem;
+    gap: 5rem;
 
     list-style: none;
 }
