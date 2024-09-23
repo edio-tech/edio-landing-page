@@ -10,6 +10,12 @@
 
   --ff-primary: 'Montserrat', sans-serif;
 
+  --fs-h1: 60px;
+  --fs-h2: 35px;
+  --fs-body: 25px;
+  --fs-button: 30px;
+  --fs-header: 40px;
+
   --fw-light: 300;
   --fw-regular: 400;
   --fw-medium: 500;
@@ -88,4 +94,20 @@ h6 {
     overflow-wrap: break-word;
 }
 
+body {
+  background-color: var(--clr-background);
+  color: var(--clr-text);
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-body);
+}
 
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-semibold);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+}

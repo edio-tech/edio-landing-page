@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 
-import logo from '../assets/images/Splash-Inverse.png';
+import logo from '../assets/images/logo-edio.png';
 
 const HomeLink = () =>
 {

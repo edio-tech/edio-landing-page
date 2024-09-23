@@ -1,0 +1,29 @@
+.header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+/* Header Home Link */
+.header-home-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    text-decoration: none;
+    color: var(--clr-text);
+}
+
+.header-home-link-logo {
+    width: 4rem;
+    aspect-ratio: 53/47;
+}
+
+.header-home-link-text {
+    font-size: var(--fs-header);
+    font-weight: var(--fw-semibold);
+}
+
+
