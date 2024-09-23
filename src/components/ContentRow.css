@@ -1,0 +1,42 @@
+.content-row
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 5rem;
+    gap: 10rem;
+}
+
+.reverse
+{
+    flex-direction: row-reverse;
+}
+
+.content-row-text
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2.5rem;
+    font-weight: var(--fw-medium);
+
+    width: 50vw;
+}
+
+.content-row-text-button {
+    padding: 0.35rem 3.5rem;
+}
+
+.content-row-image
+{
+    width: 40vw;
+}
+
+.content-row-image-img
+{
+    width: 100%;
+    height: auto;
+}
+
