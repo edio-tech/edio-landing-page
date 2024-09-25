@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1.25rem;
 
     background-color: var(--clr-background-accent);
     color: var(--clr-text-accent);
