@@ -29,7 +29,7 @@ const Footer = () =>
                                 <div className="line"></div>
                             </div>
                             <div className="legal-links">
-                                <a className="footer-link">Terms of Service</a>
+                                <Link to="/terms" className="footer-link">Terms of Service</Link>
                                 <Link to="/privacy" className="footer-link">Privacy Policy</Link>
                             </div>
                         </div>

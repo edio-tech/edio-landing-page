@@ -8,6 +8,7 @@ import ForCreators from './pages/ForCreators';
 import ForEducators from './pages/ForEducators';
 import ForEnterprise from './pages/ForEnterprise';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 const App = () =>
 {
@@ -21,6 +22,7 @@ const App = () =>
 				<Route path="/for-enterprise" element={<ForEnterprise />} />
 
 				<Route path="/privacy" element={<PrivacyPolicy />} />
+				<Route path="/terms" element={<TermsOfService />} />
 			</Route>
 		</Routes>
 	)
