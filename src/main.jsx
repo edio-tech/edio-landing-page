@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')).render(
     <HeaderShownProvider>
       <BrowserRouter>
         <Routes>
-        <Route path="/*" element={<App />} />
+          <Route path="/*" element={<App />} />
         </Routes>
       </BrowserRouter>
     </HeaderShownProvider>
