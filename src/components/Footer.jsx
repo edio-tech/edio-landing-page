@@ -47,7 +47,9 @@ const Footer = () =>
             </div>
             <div className="copyright">
                 <p>&copy; 2024</p>
+                <div className="v-line"></div>
                 <p>All rights reserved</p>
+                <div className="v-line"></div>
                 <p>We are in beta</p>
             </div>
         </div>
