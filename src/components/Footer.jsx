@@ -1,5 +1,9 @@
 import './Footer.css';
 import HomeLink from './HomeLink';
+import LinkedInLink from './LinkedInLink';
+import InstagramLink from './InstagramLink';
+import TwitterLink from './TwitterLink';
+import TikTokLink from './TikTokLink';
 
 const Footer = () =>
 {
@@ -9,22 +13,31 @@ const Footer = () =>
                 <div className="info-links">
                     <div className="vertical-columns">
                         <div className="connect">
-                            <h3>Connect</h3>
+                            <div className="footer-title">
+                                <h4>Contact</h4>
+                                <div className="line"></div>
+                            </div>
                             <div className="connect-links">
-                                <a>contact@edio.cc</a>
-                                <a>support@edio.cc</a>
+                                <a className="footer-link">contact@edio.cc</a>
+                                <a className="footer-link">support@edio.cc</a>
                             </div>
                         </div>
                         <div className="legal">
-                            <h3>Company</h3>
+                            <div className="footer-title">
+                                <h4>Company</h4>
+                                <div className="line"></div>
+                            </div>
                             <div className="legal-links">
-                                <a>Terms of Service</a>
-                                <a>Privacy Policy</a>
+                                <a className="footer-link">Terms of Service</a>
+                                <a className="footer-link">Privacy Policy</a>
                             </div>
                         </div>
                     </div>
                     <div className="socials">
-                        
+                        <LinkedInLink />
+                        <InstagramLink />
+                        <TwitterLink />
+                        <TikTokLink />
                     </div>
                 </div>
                 <div className="logo-link">

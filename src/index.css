@@ -21,12 +21,16 @@
   --fs-body: 20px;
   --fs-button: 24px;
   --fs-header: 32px;
+  --fs-footer: 16px;
+  --fs-footer-small: 10px;
 
   --fs-h1-mobile: calc(var(--fs-h1) * var(--mobile-font-size-scale));
   --fs-h2-mobile: calc(var(--fs-h2) * var(--mobile-font-size-scale));
   --fs-body-mobile: calc(var(--fs-body) * var(--mobile-font-size-scale));
   --fs-button-mobile: calc(var(--fs-button) * var(--mobile-font-size-scale));
   --fs-header-mobile: calc(var(--fs-header) * var(--mobile-font-size-scale));
+  --fs-footer-mobile: calc(var(--fs-footer) * var(--mobile-font-size-scale));
+  --fs-footer-small-mobile: calc(var(--fs-footer-small) * var(--mobile-font-size-scale));
 
   --fw-light: 300;
   --fw-regular: 400;
@@ -128,6 +132,11 @@ h2 {
 
 h3 {
   font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+}
+
+h4 {
+  font-size: var(--fs-footer);
   font-weight: var(--fw-semibold);
 }
 

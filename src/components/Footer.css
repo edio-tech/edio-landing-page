@@ -2,9 +2,122 @@
 {
     background-color: var(--clr-background-accent);
     color: var(--clr-text-accent);
-    padding-block: 1rem;
+    padding-block: 3.5rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    font-size: var(--fs-footer);
 }
+
+.links
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.info-links
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.vertical-columns
+{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12rem;
+}
+
+.connect, .legal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.footer-title
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.line
+{
+    width: 100%;
+    height: 1px;
+    background-color: var(--clr-text-accent);
+}
+
+.connect-links, .legal-links
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.65rem;
+}
+
+.footer-link
+{
+    display: flex;
+    position: relative;
+    text-decoration: none;
+    color: var(--clr-text-accent);
+    transition: color 0.3s ease-in;
+}
+.footer-link:hover
+{
+    cursor: pointer;
+    color: var(--clr-accent);
+    transition: color 0.3s ease-out;
+}
+.footer-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--clr-accent);
+    transform-origin: bottom right;
+ 
+    transition: transform 0.5s ease-out;
+}
+.footer-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+ }
+
+.socials
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.copyright 
+{
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    font-size: var(--fs-footer-small);
+}
+
