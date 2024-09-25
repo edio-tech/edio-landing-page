@@ -34,12 +34,12 @@ const Footer = () =>
                             </div>
                         </div>
                     </div>
-                    <div className="socials">
+                    {/* <div className="socials">
                         <LinkedInLink />
                         <InstagramLink />
                         <TwitterLink />
                         <TikTokLink />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="logo-link">
                     <HomeLink width="5rem" font_size="var(--fs-h1)" font_colour="var(--clr-text-accent)" />
