@@ -1,0 +1,42 @@
+.contact-section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem 25rem;
+}
+
+.contact-card
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    background-color: var(--clr-background-accent);
+    color: var(--clr-text-accent);
+    padding: 2rem 3.5rem;
+    border-radius: 1rem;
+}
+
+.contact-card p
+{
+    text-align: center;
+}
+
+.contact-button
+{
+    background-color: var(--clr-white);
+    color: var(--clr-accent);
+    padding-inline: 3rem;
+}
+
+.contact-button:hover
+{
+    background-color: var(--clr-accent);
+    color: var(--clr-white);
+}
+
+
+

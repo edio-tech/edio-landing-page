@@ -15,11 +15,11 @@
 
   --mobile-font-size-scale: 0.667;
 
-  --fs-h1: 40px;
-  --fs-h2: 25px;
-  --fs-body: 16px;
-  --fs-button: 20px;
-  --fs-header: 28px;
+  --fs-h1: 45px;
+  --fs-h2: 28px;
+  --fs-body: 18px;
+  --fs-button: 24px;
+  --fs-header: 32px;
 
   --fs-h1-mobile: calc(var(--fs-h1) * var(--mobile-font-size-scale));
   --fs-h2-mobile: calc(var(--fs-h2) * var(--mobile-font-size-scale));
@@ -109,7 +109,7 @@ body {
   background-color: var(--clr-background);
   color: var(--clr-text);
   font-family: var(--ff-primary);
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-medium);
   font-size: var(--fs-body);
 }
 

@@ -1,3 +1,4 @@
+import Contact from "../components/Contact";
 import ContentRow from "../components/ContentRow";
 
 
@@ -23,6 +24,7 @@ const ForCreators = () =>
                 alt_button={true}
                 reverse={true}
             />
+            <Contact />
         </div>
     )
 }
