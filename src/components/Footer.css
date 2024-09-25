@@ -1,0 +1,10 @@
+.footer-container
+{
+    background-color: var(--clr-background-accent);
+    color: var(--clr-text-accent);
+    padding-block: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

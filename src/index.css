@@ -18,7 +18,7 @@
   --fs-h1: 45px;
   --fs-h2: 35px;
   --fs-h3: 28px;
-  --fs-body: 18px;
+  --fs-body: 20px;
   --fs-button: 24px;
   --fs-header: 32px;
 
@@ -112,11 +112,12 @@ body {
   font-family: var(--ff-primary);
   font-weight: var(--fw-medium);
   font-size: var(--fs-body);
+  line-height: 1.15;
 }
 
 h1 {
   font-size: var(--fs-h1);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   line-height: 1.1;
 }
 
@@ -174,5 +175,30 @@ button:hover {
 
 .content-container-title {
   text-align: center;
-  margin-block: 5rem 2.5rem;
+  margin-block: 5rem 0;
+}
+
+
+
+/* Other Stuff */
+/* Selection */
+::selection, input::selection {
+  background-color: var(--clr-accent);
+  color: var(--clr-text-accent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.75rem;
+}
+::-webkit-scrollbar-track {
+  background: var(--clr-background);
+}
+::-webkit-scrollbar-thumb {
+  opacity: 1;
+  background: var(--clr-accent);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-text);
+  /* background: var(--clr-brand); */
 }
