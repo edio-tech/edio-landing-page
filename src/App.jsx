@@ -9,6 +9,7 @@ import ForEducators from './pages/ForEducators';
 import ForEnterprise from './pages/ForEnterprise';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import Support from './pages/Support';
 
 const App = () =>
 {
@@ -23,6 +24,7 @@ const App = () =>
 
 				<Route path="/privacy" element={<PrivacyPolicy />} />
 				<Route path="/terms" element={<TermsOfService />} />
+				<Route path="/support" element={<Support />} />
 			</Route>
 		</Routes>
 	)

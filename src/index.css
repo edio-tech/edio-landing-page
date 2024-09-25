@@ -221,7 +221,7 @@ button:hover {
   transition: transform 0.3s ease-out, translate 0.3s ease-out;
 }
 
-/* Privacy Policy */
+/* Privacy Policy & Terms of Service */
 .markdown-container {
   margin: 3rem 5rem
 }
@@ -277,4 +277,21 @@ button:hover {
 .markdown-content a:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+/* Support */
+.support-section {
+  width: 100%;
+  height: 100vh;
+  gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 10rem;
+}
+
+.support-paragraph {
+  font-size: 1.25rem;
+  text-align: center;
 }
