@@ -7,7 +7,7 @@ const ContentRow = ({ title, description, image, alt, call_to_action, alt_button
             <div className="content-row-text">
                 <h3 className="content-row-text-title">{title}</h3>
                 <p className="content-row-text-description">{description}</p>
-                <button className={`content-row-text-button ${alt_button ? 'alt-button' : ''}`}>{call_to_action}</button>
+                <a className={`btn content-row-text-button ${alt_button ? 'alt-button' : ''}`} target="_blank" href="https://calendly.com/ross-edio/30min">{call_to_action}</a>
             </div>
             <div className="content-row-image">
                 <img className="content-row-image-img" src={image} alt={alt} />

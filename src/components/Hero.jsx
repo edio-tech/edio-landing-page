@@ -58,9 +58,9 @@ const Hero = ({ title, highlight, description, animation, call_to_action }) => {
             <div className="text-container">
                 <h1 className="hero-title">{renderTitle()}</h1>
                 <p className={`hero-description ${showDescription ? 'show' : ''}`}>{description}</p>
-                <button className={`hero-button alt-button ${showButton ? 'show' : ''}`}>
+                <a className={`btn hero-button alt-button ${showButton ? 'show' : ''}`} target="_blank" href="https://calendly.com/ross-edio/30min">
                     {call_to_action}
-                </button>
+                </a>
             </div>
         </div>
     );
