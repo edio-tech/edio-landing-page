@@ -8,7 +8,8 @@ const ForCreators = () =>
     return (
         <div>
             <Hero
-                title="Engage your audience by creating Duolingo for your content"
+                title="Engage your Audience by creating Duolingo for your content"
+                highlight="Audience"
                 description="Provide your content and expertise and we will create Duolingo for your audience. Suitable for slides, notes, videos and books!"
                 animation=''
                 call_to_action="Get Started - It's Free!"

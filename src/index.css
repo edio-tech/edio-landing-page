@@ -162,7 +162,7 @@ button:hover {
   position: relative;
   display: inline-block;
 }
-/* .highlight-word::before {
+.highlight-word::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -170,7 +170,7 @@ button:hover {
   bottom: 0;
   left: 0;
   background-color: var(--clr-brand);
-} */
+}
 
 .content-container-title {
   text-align: center;
