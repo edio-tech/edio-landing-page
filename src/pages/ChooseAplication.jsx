@@ -26,7 +26,7 @@ const ChooseAplication = () =>
     return (
         <div>
             <header className="choose-header">
-                <HomeLink />
+                <HomeLink width="2.75rem" fontSize="var(--fs-header)" font_colour="var(--clr-text)" />
             </header>
             <div className="choose-container">
                 <h1 className="choose-title">What best describes <span className="highlight-word">you</span>?</h1>

@@ -6,7 +6,7 @@ const Header = () =>
 {
     return (
         <header className="header-container">
-            <HomeLink />
+            <HomeLink width="2.75rem" fontSize="var(--fs-header)" font_colour="var(--clr-text)" />
             <Aplications />
         </header>
     )
