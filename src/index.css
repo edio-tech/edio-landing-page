@@ -16,7 +16,8 @@
   --mobile-font-size-scale: 0.667;
 
   --fs-h1: 45px;
-  --fs-h2: 28px;
+  --fs-h2: 35px;
+  --fs-h3: 28px;
   --fs-body: 18px;
   --fs-button: 24px;
   --fs-header: 32px;
@@ -115,11 +116,17 @@ body {
 
 h1 {
   font-size: var(--fs-h1);
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-bold);
+  line-height: 1.1;
 }
 
 h2 {
   font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+}
+
+h3 {
+  font-size: var(--fs-h3);
   font-weight: var(--fw-semibold);
 }
 
@@ -164,3 +171,8 @@ button:hover {
   left: 0;
   background-color: var(--clr-brand);
 } */
+
+.content-container-title {
+  text-align: center;
+  margin-block: 5rem 2.5rem;
+}

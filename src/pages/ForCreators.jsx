@@ -1,11 +1,19 @@
 import Contact from "../components/Contact";
 import ContentRow from "../components/ContentRow";
+import Hero from "../components/Hero";
 
 
 const ForCreators = () =>
 {
     return (
         <div>
+            <Hero
+                title="Engage your audience by creating Duolingo for your content"
+                description="Provide your content and expertise and we will create Duolingo for your audience. Suitable for slides, notes, videos and books!"
+                animation=''
+                call_to_action="Get Started - It's Free!"
+            />
+            <h2 className="content-container-title">What You Get</h2>
             <ContentRow
                 title="Leverage Generative AI"
                 description="We use advanced fine-tuned Generative AI to transform your content into gamified learning experiences more affordably, quickly, and effectively than any existing course creation platform!"

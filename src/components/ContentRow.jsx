@@ -5,7 +5,7 @@ const ContentRow = ({ title, description, image, alt, call_to_action, alt_button
     return (
         <div className={`content-row ${reverse ? 'reverse' : ''}`}>
             <div className="content-row-text">
-                <h2 className="content-row-text-title">{title}</h2>
+                <h3 className="content-row-text-title">{title}</h3>
                 <p className="content-row-text-description">{description}</p>
                 <button className={`content-row-text-button ${alt_button ? 'alt-button' : ''}`}>{call_to_action}</button>
             </div>
