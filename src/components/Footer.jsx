@@ -4,6 +4,7 @@ import LinkedInLink from './LinkedInLink';
 import InstagramLink from './InstagramLink';
 import TwitterLink from './TwitterLink';
 import TikTokLink from './TikTokLink';
+import { Link } from 'react-router-dom';
 
 const Footer = () =>
 {
@@ -29,7 +30,7 @@ const Footer = () =>
                             </div>
                             <div className="legal-links">
                                 <a className="footer-link">Terms of Service</a>
-                                <a className="footer-link">Privacy Policy</a>
+                                <Link to="/privacy" className="footer-link">Privacy Policy</Link>
                             </div>
                         </div>
                     </div>
