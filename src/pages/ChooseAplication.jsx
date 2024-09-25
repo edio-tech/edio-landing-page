@@ -29,7 +29,7 @@ const ChooseAplication = () =>
                 <HomeLink width="2.75rem" fontSize="var(--fs-header)" font_colour="var(--clr-text)" />
             </header>
             <div className="choose-container">
-                <h1 className="choose-title">What best describes <span className="highlight-word">you</span>?</h1>
+                <h1 className="choose-title">What best describes <span style={{color: 'var(--clr-brand)'}}>you</span>?</h1>
                 <div className="choices">
                     <button id="for-enterprise" className="choice-btn" onClick={handleClick}>
                         <BriefcaseBusiness />

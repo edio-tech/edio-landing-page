@@ -12,7 +12,6 @@
     margin-inline: 1rem;
     background-color: var(--clr-background-accent);
     color: var(--clr-text-accent);
-
     height: 75vh;
     border-radius: 1.5rem;
     display: flex;
@@ -27,6 +26,42 @@
     align-items: flex-start;
     justify-content: center;
     gap: 2.5rem;
+}
+
+.hero-title {
+    min-height: 2.5em; /* Adjust based on your font size to prevent layout shifts */
+}
+
+.highlight-word {
+    color: var(--clr-brand);
+    position: relative;
+    display: inline-block;
+}
+
+.highlight-word::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--clr-brand);
+    transition: width 0.8s ease-out;
+}
+
+.highlight-word.show-underline::before {
+    width: 100%;
+}
+
+.hero-description, .hero-button {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.5s ease-out;
+}
+
+.hero-description.show, .hero-button.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-button {

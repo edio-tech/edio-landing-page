@@ -167,7 +167,7 @@ button:hover {
   color: var(--clr-white);
 }
 
-.highlight-word {
+/* .highlight-word {
   color: var(--clr-brand);
   position: relative;
   display: inline-block;
@@ -180,7 +180,7 @@ button:hover {
   bottom: 0;
   left: 0;
   background-color: var(--clr-brand);
-}
+} */
 
 .content-container-title {
   text-align: center;

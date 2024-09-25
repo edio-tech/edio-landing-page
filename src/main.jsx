@@ -7,7 +7,7 @@ import './index.css';
 import { HeaderShownProvider } from './context/HeaderShownProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <HeaderShownProvider>
       <BrowserRouter>
         <Routes>
@@ -15,5 +15,5 @@ createRoot(document.getElementById('root')).render(
         </Routes>
       </BrowserRouter>
     </HeaderShownProvider>
-  </StrictMode>
+  // </StrictMode>
 );
