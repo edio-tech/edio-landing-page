@@ -18,8 +18,8 @@ const Footer = () =>
                                 <div className="line"></div>
                             </div>
                             <div className="connect-links">
-                                <a className="footer-link">contact@edio.cc</a>
-                                <a className="footer-link">support@edio.cc</a>
+                                <a className="footer-link" href="mailto:contact@edio.cc">contact@edio.cc</a>
+                                <a className="footer-link" href="mailto:support@edio.cc">support@edio.cc</a>
                             </div>
                         </div>
                         <div className="legal">
@@ -45,7 +45,7 @@ const Footer = () =>
                 </div>
             </div>
             <div className="copyright">
-                <p>© 2024</p>
+                <p>&copy; 2024</p>
                 <p>All rights reserved</p>
                 <p>We are in beta</p>
             </div>
