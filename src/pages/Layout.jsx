@@ -12,7 +12,7 @@ const Layout = ({ children }) =>
         <div>
             <ScrollToTop />
             {headerShown && <Header />}
-            <main>
+            <main style={{ paddingTop: headerShown ? '5rem' : '0' }}>
                 <Outlet />
                 {children}
             </main>
