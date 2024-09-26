@@ -293,6 +293,37 @@ button:hover, .btn:hover {
 }
 
 .support-paragraph {
-  font-size: 1.25rem;
   text-align: center;
 }
+
+
+
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+  body {
+    font-size: var(--fs-body-mobile);
+  }
+
+  h1 {
+    font-size: var(--fs-h1-mobile);
+  }
+
+  h2 {
+    font-size: var(--fs-h2-mobile);
+  }
+  
+  h3 {
+    font-size: var(--fs-h3-mobile);
+  }
+
+  h4 {
+    font-size: var(--fs-footer-mobile);
+  }
+  
+  button, .btn {
+    font-size: var(--fs-button-mobile);
+  }
+}
+
