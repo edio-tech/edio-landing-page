@@ -303,13 +303,10 @@ button:hover, .btn:hover {
   h3 {
     font-size: var(--fs-h3-mobile);
   }
-
-  h4 {
-    font-size: var(--fs-footer-mobile);
-  }
   
   button, .btn {
     font-size: var(--fs-button-mobile);
+    padding: 0.75rem 1.5rem;
   }
 }
 
