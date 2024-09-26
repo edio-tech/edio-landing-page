@@ -27,7 +27,7 @@ const Hero = ({ title, highlight, description, animation, call_to_action }) => {
                     setShowUnderline(true);
                 }, 500);
             }
-        }, 100); // Adjust typing speed here
+        }, 60); // Adjust typing speed here
 
         return () => clearInterval(typingInterval);
     }, [title]);
