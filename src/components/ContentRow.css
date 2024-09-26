@@ -39,3 +39,27 @@
     height: auto;
 }
 
+
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .content-row {
+        flex-direction: column;
+        padding: 2.5rem 1rem;
+        gap: 3rem;
+    }
+
+    .content-row-text {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .content-row-image {
+        width: 100%;
+    }
+    
+}
+

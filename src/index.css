@@ -26,6 +26,7 @@
 
   --fs-h1-mobile: calc(var(--fs-h1) * var(--mobile-font-size-scale));
   --fs-h2-mobile: calc(var(--fs-h2) * var(--mobile-font-size-scale));
+  --fs-h3-mobile: calc(var(--fs-h3) * var(--mobile-font-size-scale));
   --fs-body-mobile: calc(var(--fs-body) * var(--mobile-font-size-scale));
   --fs-button-mobile: calc(var(--fs-button) * var(--mobile-font-size-scale));
   --fs-header-mobile: calc(var(--fs-header) * var(--mobile-font-size-scale));
