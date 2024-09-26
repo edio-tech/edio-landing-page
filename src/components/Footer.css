@@ -128,3 +128,11 @@
     background-color: var(--clr-text-accent);
 }
 
+@media (max-width: 768px) {
+    .vertical-columns {
+        flex-direction: column;
+        align-items: center;
+        gap: 3.5rem;
+    }
+}
+
