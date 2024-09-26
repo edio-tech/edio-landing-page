@@ -90,5 +90,8 @@
         text-align: center;
     }
     
+    .highlight-word::before {
+        height: 2px;
+    }
 }
 
