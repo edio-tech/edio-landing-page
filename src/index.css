@@ -310,5 +310,9 @@ button:hover, .btn:hover {
   .markdown-container {
     margin: 2rem 1rem;
   }
+
+  .support-section {
+    padding-inline: 1rem;
+  }
 }
 
