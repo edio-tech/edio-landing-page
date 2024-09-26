@@ -15,6 +15,11 @@
     padding-block: 1rem;
 }
 
+.choose-title {
+    text-align: center;
+    margin-inline: 1rem;
+}
+
 .choices {
     display: flex;
     flex-direction: column;
@@ -29,5 +34,11 @@
     align-items: center;
     justify-content: center;
     width: 25rem;
+}
+
+@media (max-width: 768px) {
+    .choice-btn {
+        width: 90vw;
+    }
 }
 
