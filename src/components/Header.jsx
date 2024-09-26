@@ -8,6 +8,7 @@ const Header = () =>
 {
     const [showHeader, setShowHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
 
     const controlHeader = () =>
     {
@@ -38,9 +39,28 @@ const Header = () =>
         }
     }, [lastScrollY]);
 
+    useEffect(() =>
+    {
+        const handleResize = () =>
+        {
+            setIsDesktop(window.innerWidth > 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () =>
+        {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <header className={`header-container ${showHeader ? 'header-visible' : 'header-hidden'}`}>
-            <HomeLink width="2.75rem" fontSize="var(--fs-header)" font_colour="var(--clr-text)" />
+            <HomeLink 
+                width={isDesktop ? "2.75rem" : "2rem"} 
+                fontSize="var(--fs-header)" 
+                font_colour="var(--clr-text)" 
+            />
             <Aplications />
         </header>
     )

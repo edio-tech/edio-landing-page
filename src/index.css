@@ -168,21 +168,6 @@ button:hover, .btn:hover {
   color: var(--clr-white);
 }
 
-/* .highlight-word {
-  color: var(--clr-brand);
-  position: relative;
-  display: inline-block;
-}
-.highlight-word::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--clr-brand);
-} */
-
 .content-container-title {
   text-align: center;
   margin-block: 5rem 0;

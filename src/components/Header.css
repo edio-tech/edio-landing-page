@@ -110,3 +110,18 @@
     display: none;
  }
 
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .aplications-container {
+        padding-right: 0;
+    }
+    .aplications-list {
+        gap: 1rem;
+    }
+    .aplications-list-item-link {
+        text-align: center;
+        font-size: calc(var(--fs-body-mobile) * 0.7);
+    }
+}
