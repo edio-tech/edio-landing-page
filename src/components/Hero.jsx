@@ -1,39 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Hero.css';
 
 const Hero = ({ title, highlight, description, animation, call_to_action }) =>
 {
-    const [displayedTitle, setDisplayedTitle] = useState('');
     const [showDescription, setShowDescription] = useState(false);
     const [showButton, setShowButton] = useState(false);
     const [showUnderline, setShowUnderline] = useState(false);
+    const [videoReady, setVideoReady] = useState(false);
+    const videoRef = useRef(null);
 
     useEffect(() =>
     {
-        // let currentIndex = 0;
-        // const typingInterval = setInterval(() =>
-        // {
-        //     if (currentIndex < title.length)
-        //     {
-        //         setDisplayedTitle(title.slice(0, currentIndex + 1));
-        //         currentIndex++;
-        //     } else
-        //     {
-        //         clearInterval(typingInterval);
-        //         setTimeout(() => {
-        //             setShowDescription(true);
-        //             setShowButton(true);
-        //             setShowUnderline(true);
-        //         }, 500);
-        //     }
-        // }, 60);
+        setTimeout(() =>
+        {
+            setVideoReady(true);
+        }, 200);
+    }, []);
 
-        setShowDescription(true);
-        setShowButton(true);
-        setShowUnderline(true);
-
-        // return () => clearInterval(typingInterval);
-    }, [title]);
+    useEffect(() =>
+    {
+        if (videoReady)
+        {
+            setShowDescription(true);
+            setShowButton(true);
+            setShowUnderline(true);
+        }
+    }, [videoReady]);
 
     const renderTitle = () =>
     {
@@ -54,11 +46,20 @@ const Hero = ({ title, highlight, description, animation, call_to_action }) =>
     };
 
     return (
-        <div className="hero-container">
-            <div className="animation-container">
-                <video autoPlay muted loop playsInline className='hero-video' src={animation} />
+        <div className={`hero-container ${videoReady ? '' : 'hero-height'}`}>
+            <div className="animation-container" style={{ opacity: videoReady ? 1 : 0 }}>
+                <video 
+                    ref={videoRef}
+                    id="hero-video" 
+                    muted 
+                    loop 
+                    playsInline 
+                    className='hero-video' 
+                    src={animation}
+                    autoPlay
+                />
             </div>
-            <div className="text-container">
+            <div className="text-container" style={{ opacity: videoReady ? 1 : 0 }}>
                 <h1 className="hero-title">{renderTitle()}</h1>
                 <p className={`hero-description ${showDescription ? 'show' : ''}`}>{description}</p>
                 <a className={`btn hero-button alt-button ${showButton ? 'show' : ''}`} target="_blank" href="https://calendly.com/ross-edio/30min">
