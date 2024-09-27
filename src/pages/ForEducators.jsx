@@ -27,7 +27,7 @@ const ForEducators = () =>
             <ContentRow
                 title="Why Educators Love Us"
                 description="We save you time by using AI to create gamified learning experiences that can be used for Continuous Assessment, in minutes! Easily identify where your students need assistance through your dashboard! Students receive AI-enhanced feedback on their progress!"
-                image={'https://res.cloudinary.com/dphekriyz/image/upload/v1727114223/edio/landing-page/CreatorPortal_qdpfny.png'}
+                image={'https://res.cloudinary.com/dphekriyz/image/upload/v1727472379/edio/landing-page/Group_60_1_k37fkz.png'}
                 alt="Why Educators Love Us"
                 call_to_action="Get Started - It's Free!"
                 alt_button={true}
