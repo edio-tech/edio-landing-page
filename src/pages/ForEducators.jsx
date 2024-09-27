@@ -11,7 +11,7 @@ const ForEducators = () =>
                 title="Engage your Students by creating Duolingo for your class"
                 highlight="Students"
                 description="Provide your content and expertise and we will create Duolingo for your students. Suitable for slides, notes, videos and books!"
-                animation=''
+                animation='https://res.cloudinary.com/dphekriyz/video/upload/v1727468721/edio/video_testing/final_ykmabs.mov'
                 call_to_action="Get Started - It's Free!"
             />
             <h2 className="content-container-title">What Your Students Get</h2>
