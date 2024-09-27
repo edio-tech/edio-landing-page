@@ -18,7 +18,7 @@ const Landing = () =>
         }
         else
         {
-            setHeaderShown(false);
+            setHeaderShown(true);
             navigate('/for-creators');
         }
     }
