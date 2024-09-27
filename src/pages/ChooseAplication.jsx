@@ -43,10 +43,10 @@ const ChooseAplication = () =>
                         <Clapperboard />
                         Creator
                     </button>
-                    <button id="for-learners" className="choice-btn" onClick={handleClick}>
+                    {/* <button id="for-learners" className="choice-btn" onClick={handleClick}>
                         <NotebookPen />
                         Learner
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </div>
