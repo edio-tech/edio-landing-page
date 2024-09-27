@@ -11,10 +11,10 @@ const ChooseAplication = () =>
     const navigate = useNavigate();
     const { setHeaderShown } = useHeaderShown();
 
-    useEffect(() =>
-    {
-        setHeaderShown(false);
-    }, []);
+    // useEffect(() =>
+    // {
+    //     setHeaderShown(false);
+    // }, []);
 
     const handleClick = (e) =>
     {
