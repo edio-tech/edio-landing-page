@@ -19,7 +19,7 @@ const Landing = () =>
         else
         {
             setHeaderShown(false);
-            navigate('/choose');
+            navigate('/for-creators');
         }
     }
 
