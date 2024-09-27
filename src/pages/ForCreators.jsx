@@ -27,7 +27,7 @@ const ForCreators = () =>
             <ContentRow
                 title="Why Creators Love Us"
                 description="The easiest way to monetise your audience! Minimal work - provide your content and we do the rest! We don’t own your content! You decide the pricing! We provide you with insights for your content creation based on what your audience needs help with!"
-                image={'https://res.cloudinary.com/dphekriyz/image/upload/v1727114223/edio/landing-page/CreatorPortal_qdpfny.png'}
+                image={'https://res.cloudinary.com/dphekriyz/image/upload/v1727472379/edio/landing-page/Group_60_1_k37fkz.png'}
                 alt="Why Creators Love Us"
                 call_to_action="Get Started - It's Free!"
                 alt_button={true}
