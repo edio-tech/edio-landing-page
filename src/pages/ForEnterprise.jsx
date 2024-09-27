@@ -11,7 +11,7 @@ const ForEnterprise = () =>
                 title="Engage your Employees by creating Duolingo for your team"
                 highlight="Employees"
                 description="Provide your content and expertise and we will create Duolingo for your employees. Suitable for slides, notes, videos and books!"
-                animation=''
+                animation='https://res.cloudinary.com/dphekriyz/video/upload/v1727468721/edio/video_testing/final_ykmabs.mov'
                 call_to_action="Get Started - It's Free!"
             />
             <h2 className="content-container-title">What Your Employees Get</h2>
