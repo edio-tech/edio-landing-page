@@ -10,13 +10,16 @@
 .animation-container {
     width: 50vw; /* default placeholder for now */
     margin-inline: 1rem;
-    background-color: var(--clr-background-accent);
     color: var(--clr-text-accent);
-    height: 75vh; /* default placeholder for now */
-    border-radius: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.hero-video {
+    width: 92%;
+    height: auto;
+    border-radius: 1.5rem;
 }
 
 .text-container {
