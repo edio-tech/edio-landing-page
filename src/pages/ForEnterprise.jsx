@@ -27,7 +27,7 @@ const ForEnterprise = () =>
             <ContentRow
                 title="Why Enterprise Loves Us"
                 description="We save you time by using AI to create gamified learning experiences that can be used for Continuous Assessment, in minutes - not months! Easily identify what your employees struggle with through your dashboard! Employees receive AI-enhanced feedback on their progress!"
-                image={'https://res.cloudinary.com/dphekriyz/image/upload/v1727114223/edio/landing-page/CreatorPortal_qdpfny.png'}
+                image={'https://res.cloudinary.com/dphekriyz/image/upload/v1727472379/edio/landing-page/Group_60_1_k37fkz.png'}
                 alt="Why Enterprise Loves Us"
                 call_to_action="Get Started - It's Free!"
                 alt_button={true}
