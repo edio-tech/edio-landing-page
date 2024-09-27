@@ -56,7 +56,7 @@ const Hero = ({ title, highlight, description, animation, call_to_action }) => {
                 <div>Animation Placeholder</div>
             </div> */}
             <div className="animation-container">
-                <video autoPlay muted loop playsInline className='hero-video' src="https://res.cloudinary.com/dphekriyz/video/upload/v1727465619/edio/video_testing/Screen_Recording_2024-09-27_at_20.18.10_irrh4u.mov" />
+                <video autoPlay muted loop playsInline className='hero-video' src="https://res.cloudinary.com/dphekriyz/video/upload/v1727468721/edio/video_testing/final_ykmabs.mov" />
             </div>
             <div className="text-container">
                 <h1 className="hero-title">{renderTitle()}</h1>
