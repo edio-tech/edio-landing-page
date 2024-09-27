@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import './Hero.css';
 
-const Hero = ({ title, highlight, description, animation, call_to_action }) => {
+const Hero = ({ title, highlight, description, animation, call_to_action }) =>
+{
     const [displayedTitle, setDisplayedTitle] = useState('');
     const [showDescription, setShowDescription] = useState(false);
     const [showButton, setShowButton] = useState(false);
@@ -9,54 +10,53 @@ const Hero = ({ title, highlight, description, animation, call_to_action }) => {
 
     useEffect(() =>
     {
-        let currentIndex = 0;
-        const typingInterval = setInterval(() =>
-        {
-            if (currentIndex < title.length)
-            {
-                setDisplayedTitle(title.slice(0, currentIndex + 1));
-                currentIndex++;
-            } else
-            {
-                clearInterval(typingInterval);
-                // Typing finished, show description and button
-                setTimeout(() => {
-                    setShowDescription(true);
-                    setShowButton(true);
-                    // Show underline after a short delay
-                    setShowUnderline(true);
-                }, 500);
-            }
-        }, 60); // Adjust typing speed here
+        // let currentIndex = 0;
+        // const typingInterval = setInterval(() =>
+        // {
+        //     if (currentIndex < title.length)
+        //     {
+        //         setDisplayedTitle(title.slice(0, currentIndex + 1));
+        //         currentIndex++;
+        //     } else
+        //     {
+        //         clearInterval(typingInterval);
+        //         setTimeout(() => {
+        //             setShowDescription(true);
+        //             setShowButton(true);
+        //             setShowUnderline(true);
+        //         }, 500);
+        //     }
+        // }, 60);
 
-        return () => clearInterval(typingInterval);
+        setShowDescription(true);
+        setShowButton(true);
+        setShowUnderline(true);
+
+        // return () => clearInterval(typingInterval);
     }, [title]);
 
     const renderTitle = () =>
     {
         const parts = title.split(highlight);
-        const beforeHighlight = displayedTitle.slice(0, parts[0].length);
-        const highlightPart = displayedTitle.slice(parts[0].length, parts[0].length + highlight.length);
-        const afterHighlight = displayedTitle.slice(parts[0].length + highlight.length);
+        // const beforeHighlight = displayedTitle.slice(0, parts[0].length);
+        // const highlightPart = displayedTitle.slice(parts[0].length, parts[0].length + highlight.length);
+        // const afterHighlight = displayedTitle.slice(parts[0].length + highlight.length);
 
         return (
             <>
-                {beforeHighlight}
+                {parts[0]}
                 <span className={`highlight-word ${showUnderline ? 'show-underline' : ''}`}>
-                    {highlightPart}
+                    {highlight}
                 </span>
-                {afterHighlight}
+                {parts[1]}
             </>
         );
     };
 
     return (
         <div className="hero-container">
-            {/* <div className="animation-container">
-                <div>Animation Placeholder</div>
-            </div> */}
             <div className="animation-container">
-                <video autoPlay muted loop playsInline className='hero-video' src="https://res.cloudinary.com/dphekriyz/video/upload/v1727468721/edio/video_testing/final_ykmabs.mov" />
+                <video autoPlay muted loop playsInline className='hero-video' src={animation} />
             </div>
             <div className="text-container">
                 <h1 className="hero-title">{renderTitle()}</h1>
