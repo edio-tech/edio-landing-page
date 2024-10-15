@@ -10,6 +10,11 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Support from './pages/Support';
 
+import Login from './pages/Login';
+
+import RequireAuth from './checks/RequireAuth';
+import EditChannelContent from './creators/pages/EditChannelContent';
+
 const App = () =>
 {
 	return (
@@ -24,6 +29,13 @@ const App = () =>
 				<Route path="/privacy" element={<PrivacyPolicy />} />
 				<Route path="/terms" element={<TermsOfService />} />
 				<Route path="/support" element={<Support />} />
+
+				<Route path="/login" element={<Login />} />
+				{/* <Route path="/register" element={<Register />} /> */}
+
+				<Route element={<RequireAuth />}>
+					<Route path="/edit-channel-content" element={<EditChannelContent />} />
+				</Route>
 			</Route>
 		</Routes>
 	)
