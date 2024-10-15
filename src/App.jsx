@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
+// General Pages
 import Layout from './pages/Layout';
 import ChooseAplication from './pages/ChooseAplication';
 import Landing from './pages/Landing';
@@ -9,11 +10,18 @@ import ForEnterprise from './pages/ForEnterprise';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Support from './pages/Support';
-
 import Login from './pages/Login';
 
+// Checks
 import RequireAuth from './checks/RequireAuth';
+import RequireCreator from './checks/RequireCreator';
+import RequireAdmin from './checks/RequireAdmin';
+
+// Creators Pages
 import EditChannelContent from './creators/pages/EditChannelContent';
+
+// Admin Pages
+// ...
 
 const App = () =>
 {
