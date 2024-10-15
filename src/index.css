@@ -11,6 +11,9 @@
   --clr-white: #FFFFFF;
   --clr-black: #000000;
 
+  --clr-success: #4BB543;
+  --clr-error: #cc0000;
+
   --ff-primary: 'Montserrat', sans-serif;
 
   --mobile-font-size-scale: 0.667;

@@ -13,7 +13,7 @@ const Layout = ({ children }) =>
         <div>
             <ScrollToTop />
             {headerShown && <Header />}
-            <main style={{ paddingTop: headerShown ? '5rem' : '0' }}>
+            <main style={{ paddingTop: headerShown ? '5rem' : '0', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <Outlet />
                 {children}
             </main>

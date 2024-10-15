@@ -1,0 +1,152 @@
+input,
+textarea,
+button {
+  all: unset;
+  box-sizing: border-box;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.form {
+    display: grid;
+    gap: 1rem;
+}
+
+.FormRoot {
+    width: 32rem;
+}
+  
+.FormField {
+    display: grid;
+    margin-bottom: 1rem;
+}
+  
+.FormLabel {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    line-height: 2rem;
+    color: var(--clr-text);
+}
+
+.FormMessage {
+    font-size: var(--fs-footer-small);
+    color: var(--clr-error);
+    opacity: 0.8;
+}
+  
+.Input,
+.Textarea {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: var(--fs-body);
+    color: var(--clr-text);
+    background-color: var(--clr-background);
+  
+    outline: 2px solid var(--clr-accent);
+    border-radius: 0.25rem;
+  
+    box-shadow: 0 0 0 1px var(--clr-black);
+}
+.Input[data-invalid],
+.Textarea[data-invalid] {
+    outline: 2px solid var(--clr-error);
+}
+  
+.Input[data-valid],
+.Textarea[data-valid] {
+    outline: 2px solid var(--clr-success);
+}
+  
+.Input:focus[data-invalid],
+.Textarea:focus[data-invalid] {
+    outline: 2px solid var(--clr-error);
+}
+  
+.Input:focus[data-valid],
+.Textarea:focus[data-valid] {
+    outline: 2px solid var(--clr-success);
+}
+  
+.Input::selection,
+.Textarea::selection {
+    background-color: var(--clr-accent);
+    color: var(--clr-background);
+}
+  
+.Input {
+    padding: 0 0.5rem;
+    height: 2rem;
+    line-height: 1;
+}
+  
+.Textarea {
+    resize: vertical;
+    padding: 0.8rem;
+}
+
+.Button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    padding: 1.5rem 2rem;
+    font-size: var(--fs-button);
+    line-height: 1;
+    font-weight: var(--fw-bold);
+    height: 2rem;
+  
+    background-color: var(--clr-brand);
+    color: var(--clr-text);
+    outline: 1px solid var(--clr-brand);
+    box-shadow: 0 0 0 1px var(--clr-black);
+  
+    transition: background-color 0.35s ease;
+}
+.Button:hover {
+    background-color: var(--clr-background);
+    color: var(--clr-text);
+    
+    transition: background-color 0.35s ease;
+}
+
+.form-button-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .FormRoot {
+        width: 100%;
+        padding-inline: 1rem;
+    }
+
+    .FormLabel {
+        font-size: var(--fs-body-mobile);
+    }
+
+    .FormMessage {
+        font-size: var(--fs-footer-small-mobile);
+    }
+    
+    .Input,
+    .Textarea {
+        font-size: var(--fs-body-mobile);
+    }
+
+    .Button {
+        font-size: var(--fs-button-mobile);
+    }
+}
