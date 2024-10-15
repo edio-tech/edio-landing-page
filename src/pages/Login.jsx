@@ -88,7 +88,7 @@ const Login = () =>
                     <div className='form-button-row'>
                         <button className="Button" style={{ marginTop: 10 }}>
                             {
-                                loading ? <><BeatLoader color="var(--clr-hover)" /></> : <>Login</>
+                                loading ? <><BeatLoader color="var(--clr-text)" size={16} /></> : <>Login</>
                             }
                         </button>
                     </div>
