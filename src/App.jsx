@@ -33,7 +33,7 @@ const App = () =>
 				<Route path="/login" element={<Login />} />
 				{/* <Route path="/register" element={<Register />} /> */}
 
-				<Route element={<RequireAuth />}>
+				<Route element={<RequireCreator />}>
 					<Route path="/edit-channel-content" element={<EditChannelContent />} />
 				</Route>
 			</Route>
