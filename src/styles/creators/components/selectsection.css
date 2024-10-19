@@ -1,0 +1,40 @@
+
+.select-section-container
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+
+    overflow-x: scroll;
+}
+
+    .section-button
+    {
+        padding: 5px;
+        font-size: .8rem;
+        background-color: green;
+        height: 50px;
+        width: 200px;
+
+        overflow-y: hidden;
+
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        font-weight: var(--fw-medium);
+        border: none;
+        border-radius: 50vw;
+
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .section-button:hover {
+        background-color: var(--clr-white);
+        color: var(--clr-accent);
+
+        transition: background-color 0.3s ease, color 0.3s ease;
+        cursor: pointer;
+    }

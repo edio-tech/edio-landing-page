@@ -1,0 +1,70 @@
+.btn-custom-part
+{
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--clr-accent);
+    color: var(--clr-text-accent);
+    font-size: var(--fs-button);
+    font-weight: var(--fw-medium);
+    border: none;
+    border-radius: 50vw;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-custom-part:hover {
+    background-color: var(--clr-white);
+    color: var(--clr-accent);
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+
+.flex-main-part-select-container
+{
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+    .button-container
+    {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+        .part-container
+        {
+            padding-top: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+            .matthew-test
+            {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                padding-inline: 2rem;
+            }
+
+            .part-button
+            {
+                width: fit-content;
+            }
+
+            .part-button:hover
+            {
+                color: var(--clr-brand);
+                text-decoration: underline;
+                text-decoration-color: var(--clr-brand);
+
+                transition: color 0.3s ease;
+                cursor: pointer;
+            }
+
+

@@ -144,13 +144,14 @@ h4 {
   font-weight: var(--fw-semibold);
 }
 
-button, .btn {
+button, .btn
+{
   text-decoration: none;
   background-color: var(--clr-accent);
   color: var(--clr-text-accent);
   font-size: var(--fs-button);
   font-weight: var(--fw-medium);
-  padding: 0.75rem 3rem;
+  /* padding: 0.75rem 3rem; */
   border: none;
   border-radius: 50vw;
 
@@ -161,6 +162,7 @@ button:hover, .btn:hover {
   color: var(--clr-accent);
 
   transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
 
 .alt-button {
@@ -319,3 +321,98 @@ button:hover, .btn:hover {
   }
 }
 
+
+/* Debugging */
+
+/* Debugging */
+.mtbg {
+  border: 3px solid black;
+}
+.mttg {
+  border: 3px solid blue;
+}
+.mtrg {
+  border: 3px solid red;
+}
+.mtgg {
+  border: 3px solid green;
+}
+.mtyg {
+  border: 3px solid yellow;
+}
+.mtwg {
+  border: 3px solid white;
+}
+.mtog {
+  border: 3px solid orange;
+}
+
+/* Debugging */
+.mbg {
+  border: 1px solid black;
+}
+.mtg {
+  border: 1px solid blue;
+}
+.mrg {
+  border: 1px solid red;
+}
+.mgg {
+  border: 1px solid green;
+}
+.myg {
+  border: 1px solid yellow;
+}
+.mwg {
+  border: 1px solid white;
+}
+.mog {
+  border: 1px solid orange;
+}
+
+/* Debugging - Fill Entire Box */
+.fill-black {
+  background-color: black;
+}
+.fill-blue {
+  background-color: blue;
+}
+.fill-red {
+  background-color: red;
+}
+.fill-green {
+  background-color: green;
+}
+.fill-yellow {
+  background-color: yellow;
+}
+.fill-white {
+  background-color: white;
+}
+.fill-orange {
+  background-color: orange;
+}
+.fill-purple {
+  background-color: purple;
+}
+.fill-pink {
+  background-color: pink;
+}
+.fill-cyan {
+  background-color: cyan;
+}
+.fill-magenta {
+  background-color: magenta;
+}
+.fill-lime {
+  background-color: lime;
+}
+.fill-teal {
+  background-color: teal;
+}
+.fill-indigo {
+  background-color: indigo;
+}
+.fill-brown {
+  background-color: brown;
+}

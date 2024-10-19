@@ -6,8 +6,10 @@ let baseURL = `${BACKEND_URL}/users`;
 
 let axiosConfig = axios.create({validateStatus: () => true});
 
+
 class UsersAPI
 {
+    // Users
     register(body)
     {
         return axiosConfig.post(baseURL + '/register', body);
@@ -46,6 +48,12 @@ class UsersAPI
     verifyResetToken(token)
     {
         return axiosConfig.get(baseURL + `/reset-token/${token}`);
+    }
+
+    // Creators
+    getCreator(creator_id)
+    {
+        return axiosConfig.get(baseURL + `/creators/get-with-multiple-parts/${creator_id}`);
     }
 }
 const usersAPI = new UsersAPI();
