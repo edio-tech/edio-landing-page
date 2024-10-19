@@ -50,15 +50,26 @@ const Login = () =>
             'has_password': true,
             'token': userDetails['token']
         }
-        Cookies.set('jwtToken', userDetails['token'], { expires: 365 });
-        setAuth(userAuth);
-        setLoading(false);
-        navigate('/edit-channel-content', { replace: true });
+        if ( userAuth['role'] === 'ADMIN' )
+        { 
+            Cookies.set('jwtToken', userDetails['token'], { expires: 365 });
+            setAuth(userAuth);
+            setLoading(false);
+            navigate('/edit-channel-content', { replace: true });
+        } else {
+            setApiError('You must be an admin to log in.');
+            setLoading(false);
+        }
     }
 
     return (
         <div className="form-section">
             <Form.Root className="FormRoot form" onSubmit={handleSubmit}>
+                {
+                    apiError && <div style={{ color: 'red', fontSize: '1rem', marginBottom: '1rem', textAlign: 'center' }}>
+                        {apiError}
+                    </div>
+                }
                 <Form.Field className="FormField" name="email">
                     <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
                         <Form.Label className="FormLabel">Email:</Form.Label>
