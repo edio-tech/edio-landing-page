@@ -144,7 +144,7 @@ h4 {
   font-weight: var(--fw-semibold);
 }
 
-button, .btn
+.btn
 {
   text-decoration: none;
   background-color: var(--clr-accent);
@@ -157,11 +157,15 @@ button, .btn
 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-button:hover, .btn:hover {
+.btn:hover {
   background-color: var(--clr-white);
   color: var(--clr-accent);
 
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover
+{
   cursor: pointer;
 }
 

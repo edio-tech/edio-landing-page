@@ -10,12 +10,20 @@
 
     overflow-x: scroll;
 }
+    .section-container
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
 
     .section-button
     {
         padding: 5px;
         font-size: .8rem;
         background-color: green;
+        color: var(--clr-text-accent);
         height: 50px;
         width: 200px;
 
@@ -36,5 +44,36 @@
         color: var(--clr-accent);
 
         transition: background-color 0.3s ease, color 0.3s ease;
-        cursor: pointer;
+    }
+
+    .section-edit-button
+    {
+        padding: 5px;
+        font-size: .8rem;
+        background-color: yellow;
+        color: black;
+        height: 50px;
+        width: 200px;
+
+        overflow-y: hidden;
+
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        font-weight: var(--fw-medium);
+        border: none;
+        border-radius: 50vw;
+
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+
+    .cancel-section-button
+    {
+        color: red;
+    }
+
+    .save-section-button
+    {
+        color: green;
     }
