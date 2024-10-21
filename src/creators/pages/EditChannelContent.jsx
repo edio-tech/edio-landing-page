@@ -10,6 +10,7 @@ import MarkdownEditterHelpPopup from '../components/MarkdownEditterHelpPopup';
 // Hook imports
 import useLog from '../../hooks/useLog';
 import useAuth from '../../hooks/useAuth';
+import useFooterShown from '../../hooks/useFooterShown';
 
 // API imports
 import usersAPI from '../../api/users';
@@ -21,8 +22,11 @@ import '../../styles/creators/pages/editchannelcontent.css';
 const EditChannelContent = () =>
 {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const { setFooterShown } = useFooterShown();
+    
     useEffect(() =>
     {
+        setFooterShown(false);
 
         // Function to check screen width
         const handleResize = () => {
@@ -41,7 +45,8 @@ const EditChannelContent = () =>
 
         // Clean up event listener on unmount
         return () => {
-        window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', handleResize);
+            setFooterShown(true);
         };
     }, []);
 
@@ -269,7 +274,7 @@ const EditChannelContent = () =>
                             }
                         </div>
                         <div className="help-screeen">
-                            <MarkdownEditterHelpPopup goal_id={currentSectionDetail.goals[currentGoalIndex]._id} />
+                            <MarkdownEditterHelpPopup goal_id={currentSectionDetail?.goals[currentGoalIndex]._id} />
                         </div>
 
                                         </>

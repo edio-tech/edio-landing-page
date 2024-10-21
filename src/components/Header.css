@@ -45,7 +45,7 @@
 
 /* Header Aplications */
 .aplications-container {
-    padding-right: 5rem;
+    padding-right: 1rem;
 }
 
 .aplications-list {
@@ -53,7 +53,7 @@
     flex-direction: row;
     align-items: center;
 
-    gap: 5rem;
+    gap: 3rem;
 
     list-style: none;
 }

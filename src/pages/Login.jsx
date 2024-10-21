@@ -21,10 +21,8 @@ const Login = () =>
 
     useEffect(() => 
     {
-        console.log('triggering', auth)
         if ( auth?.id ) 
         {
-            console.log('triggering 2')
             handleRedirect(auth)
         } 
     }, [auth])

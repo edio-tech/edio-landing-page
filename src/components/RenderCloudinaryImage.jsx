@@ -1,10 +1,21 @@
 
-const RenderCloudinaryImage = ({imageUrl}) => {
+const RenderCloudinaryImage = ({imageUrl, maxWidth}) => {
 
   return (
-    <div>
-      <img src={imageUrl}/>
-    </div>
+    <>
+    { 
+        maxWidth ?
+        (
+            <div style = {{width: maxWidth}}>
+                <img src={imageUrl}/>
+            </div>
+        ) : (
+            <div>
+                <img src={imageUrl}/>
+            </div>
+        )
+    }
+    </>
   );
 };
 

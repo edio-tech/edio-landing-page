@@ -71,7 +71,7 @@ const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdow
                 Object.keys(currentPartsDetail)?.map((section_id) =>
                 (
                     <>
-                    <div className = "section-container">
+                    <div key = {section_id} className = "section-container">
                         {
                             selectedSectionNameId === section_id ?
                             (

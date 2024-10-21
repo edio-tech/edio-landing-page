@@ -9,9 +9,13 @@ let axiosConfig = axios.create({validateStatus: () => true});
 
 class GenericAPI
 {
-    uploadPhotoToCloudinary(goal_id, body)
+    uploadPhotoToCloudinary(goal_id, formData)
     {
-        return axiosConfig.get(`${baseURL}/upload-photo-to-cloudinary/${goal_id}`, body);
+        return axiosConfig.post(`${baseURL}/upload-photo-to-cloudinary/${goal_id}`, formData, {
+            headers:{
+                'Content-Type': 'multipart/form-data'
+            }
+        });
     }
 }
 
