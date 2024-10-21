@@ -1,27 +1,63 @@
+import { useState, useEffect } from 'react';
 import * as Form from '@radix-ui/react-form';
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import { useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 
-import '../styles/form.css';
+// API Imports
 import usersAPI from '../api/users';
+
+// Hook imports
 import useAuth from '../hooks/useAuth';
 import useLog from "../hooks/useLog";
 
+// Styling
+import '../styles/form.css';
+
+
 const Login = () => 
 {
+    const { loading, auth, setAuth } = useAuth();
+
+    useEffect(() => 
+    {
+        console.log('triggering', auth)
+        if ( auth?.id ) 
+        {
+            console.log('triggering 2')
+            handleRedirect(auth)
+        } 
+    }, [auth])
+
+    let navigate = useNavigate();
+
+    const handleRedirect = (userAuthInfo) =>
+    {
+        let redirect;
+        if ( userAuthInfo.role == 'ADMIN' )
+        {
+            redirect = '/edit-channel-content'
+        } else if ( userAuthInfo.role == 'CREATOR' )
+        {
+            redirect = '/edit-channel-content'
+        } else
+        {
+            redirect = '/login'
+        }
+        navigate(redirect, { replace: true });
+    }
+    
+
     const { development } = useLog();
 
-    const { setAuth } = useAuth();
-    let navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
-    const [apiError, setApiError] = useState('');
+    
+    const [loginLoading, setLoginLoading] = useState(false);
+    const [loginApiError, setLoginApiError] = useState('');
 
     const handleSubmit = async (e) =>
     {
         e.preventDefault();
-        setLoading(true);
+        setLoginLoading(true);
         const data = Object.fromEntries(new FormData(e.currentTarget));
         const res = await usersAPI.login(data);
         if(development)
@@ -32,8 +68,8 @@ const Login = () =>
         {
             let errors = await res['data'];
             if(development) console.error(errors);
-            setApiError(errors['detail']);
-            setLoading(false);
+            setLoginApiError(errors['detail']);
+            setLoginLoading(false);
             return;
         }
         const userDetails = await res['data'];
@@ -50,61 +86,66 @@ const Login = () =>
             'has_password': true,
             'token': userDetails['token']
         }
-        if ( userAuth['role'] === 'ADMIN' )
+        if ( userAuth['role'] === 'ADMIN' || userAuth['role'] === 'CREATOR' )
         { 
             Cookies.set('jwtToken', userDetails['token'], { expires: 365 });
             setAuth(userAuth);
-            setLoading(false);
-            navigate('/edit-channel-content', { replace: true });
+            setLoginLoading(false);
+            handleRedirect(userAuth);
         } else {
-            setApiError('You must be an admin to log in.');
-            setLoading(false);
+            setLoginApiError('You must be an Administrator or a Creator to log in.');
+            setLoginLoading(false);
         }
     }
 
     return (
         <div className="form-section">
-            <Form.Root className="FormRoot form" onSubmit={handleSubmit}>
-                {
-                    apiError && <div style={{ color: 'red', fontSize: '1rem', marginBottom: '1rem', textAlign: 'center' }}>
-                        {apiError}
-                    </div>
-                }
-                <Form.Field className="FormField" name="email">
-                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
-                        <Form.Label className="FormLabel">Email:</Form.Label>
-                        <Form.Message className="FormMessage" match="valueMissing">
-                            Please enter your email
-                        </Form.Message>
-                        <Form.Message className="FormMessage" match="typeMismatch">
-                            Please provide a valid email
-                        </Form.Message>
-                    </div>
-                    <Form.Control asChild>
-                        <input className="Input" type="email" required />
-                    </Form.Control>
-                </Form.Field>
-                <Form.Field className="FormField" name="password">
-                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
-                        <Form.Label className="FormLabel">Password:</Form.Label>
-                        <Form.Message className="FormMessage" match="valueMissing">
-                            Enter your password
-                        </Form.Message>
-                    </div>
-                    <Form.Control asChild>
-                        <input className="Input" type="password" required />                        
-                    </Form.Control>
-                </Form.Field>
-                <Form.Submit asChild>
-                    <div className='form-button-row'>
-                        <button className="Button" style={{ marginTop: 10 }}>
-                            {
-                                loading ? <><BeatLoader color="var(--clr-text)" size={16} /></> : <>Login</>
-                            }
-                        </button>
-                    </div>
-                </Form.Submit>
-            </Form.Root>
+            { 
+                !loading &&
+                (
+                    <Form.Root className="FormRoot form" onSubmit={handleSubmit}>
+                        {
+                            loginApiError && <div style={{ color: 'red', fontSize: '1rem', marginBottom: '1rem', textAlign: 'center' }}>
+                                {loginApiError}
+                            </div>
+                        }
+                        <Form.Field className="FormField" name="email">
+                            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+                                <Form.Label className="FormLabel">Email:</Form.Label>
+                                <Form.Message className="FormMessage" match="valueMissing">
+                                    Please enter your email
+                                </Form.Message>
+                                <Form.Message className="FormMessage" match="typeMismatch">
+                                    Please provide a valid email
+                                </Form.Message>
+                            </div>
+                            <Form.Control asChild>
+                                <input className="Input" type="email" required />
+                            </Form.Control>
+                        </Form.Field>
+                        <Form.Field className="FormField" name="password">
+                            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+                                <Form.Label className="FormLabel">Password:</Form.Label>
+                                <Form.Message className="FormMessage" match="valueMissing">
+                                    Enter your password
+                                </Form.Message>
+                            </div>
+                            <Form.Control asChild>
+                                <input className="Input" type="password" required />                        
+                            </Form.Control>
+                        </Form.Field>
+                        <Form.Submit asChild>
+                            <div className='form-button-row'>
+                                <button className="Button" style={{ marginTop: 10 }}>
+                                    {
+                                        loginLoading ? <><BeatLoader color="var(--clr-text)" size={16} /></> : <>Login</>
+                                    }
+                                </button>
+                            </div>
+                        </Form.Submit>
+                    </Form.Root>
+                )
+            }
             {/* <div className='extra-links'>
                 <Link to={'/password-reset'} className='sm-txt'>Forgot Password?</Link>
                 <div className='sm-txt'>Don't have an account? - <Link to={'/register'} className='sm-txt'>Sign up</Link></div>

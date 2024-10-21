@@ -51,10 +51,17 @@ class UsersAPI
     }
 
     // Creators
+    getCreatorWithUserID(user_id)
+    {
+        return axiosConfig.get(baseURL + `/creators/get-creator-with-user-id/${user_id}`);
+    }
+
     getCreator(creator_id)
     {
         return axiosConfig.get(baseURL + `/creators/get-with-multiple-parts/${creator_id}`);
     }
+
+
 }
 const usersAPI = new UsersAPI();
 export default usersAPI;
