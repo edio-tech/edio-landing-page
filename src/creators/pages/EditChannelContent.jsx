@@ -18,6 +18,30 @@ import '../../styles/creators/pages/editchannelcontent.css';
 
 const EditChannelContent = () =>
 {
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    useEffect(() =>
+    {
+        // Function to check screen width
+        const handleResize = () => {
+          if (window.innerWidth <= 1115) {
+            setIsSmallScreen(true); // Mobile view
+          } else {
+            setIsSmallScreen(false); // Desktop view
+          }
+        };
+
+        // Initial check on component mount
+        handleResize();
+
+        // Add event listener to handle screen resize
+        window.addEventListener('resize', handleResize);
+
+        // Clean up event listener on unmount
+        return () => {
+        window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     const { development } = useLog();
 
     const creatorId = "66db1d1f3c984c1591813ef0"; // This should be passed as a prop
@@ -176,6 +200,7 @@ const EditChannelContent = () =>
                                         currentGoalIndex={currentGoalIndex}
                                         setCurrentGoalIndex={setCurrentGoalIndex}
                                         goalCardColour={creatorInfo.goal_background_colour}
+                                        isSmallScreen={isSmallScreen}
                                     />                     
                                 ) : (
                                     <div className = "select-section-window">Please select a section above.</div>

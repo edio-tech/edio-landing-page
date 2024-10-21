@@ -13,9 +13,8 @@ import questionsAPI from '../../api/questions';
 import '../../styles/creators/components/markdowneditter.css';
 
 
-const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoalIndex, goalCardColour }) =>
-{
-    
+const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoalIndex, goalCardColour, isSmallScreen }) =>
+{   
 
     const [currentGoalDetail, setCurrentGoalDetail] = useState(null);
     const [totalGoals, setTotalGoals] = useState(0);
@@ -109,16 +108,14 @@ const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoa
                 <div className="editor">
                     Editor
                 </div>
-                <div className = "title-edit-container">
-                    <input className = "summary-edit-text-box" type="text" value={goalSummary} onChange={(e) => setGoalSummary(e.target.value)} />
+                <div className = "markdown-editor-card">
+                    <div className = "title-edit-container">
+                        <input className = "summary-edit-text-box" type="text" value={goalSummary} onChange={(e) => setGoalSummary(e.target.value)} />
+                    </div>
+                    <div className="text-box-container">
+                        <textarea className="text-box" value={goalDisplayContent} onChange={(e) => setGoalDisplayContent(e.target.value)}></textarea>
+                    </div>
                 </div>
-                <div className="text-box-container">
-                    <textarea className="text-box" value={goalDisplayContent} onChange={(e) => setGoalDisplayContent(e.target.value)}></textarea>
-                </div>
-            </div>
-
-            <div className = "left-button-container">
-                <button className = "arrow-button" onClick={handlePreviousGoal} disabled={currentGoalIndex === 0}><ArrowLeft size={30} /></button>
             </div>
 
             <div className = "goal-progress-bar-container">
@@ -128,15 +125,20 @@ const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoa
                     <button onClick={handleSaveGoalContent} className = "save-goal-edit-button" disabled={!goalContentChanged}>Save</button>
             </div>
 
-            <div className = "preview-area">
-                <Iphone11>
+            <div className = "left-button-container">
+                <button className = "arrow-button" onClick={handlePreviousGoal} disabled={currentGoalIndex === 0}><ArrowLeft size={30} /></button>
+            </div>
+            { !isSmallScreen && (
+                <div className = "preview-area">
+                    <Iphone11>
                     <GoalDisplayContentScreen
                         goalSummary={goalSummary}
                         goalDisplayContent={goalDisplayContent}
                         goalCardColour={goalCardColour}
                     />
                 </Iphone11>
-            </div>
+                </div>
+            )}
 
             <div className = "right-button-container">
                 <button className = "arrow-button" onClick={handleNextGoal} disabled={currentGoalIndex === totalGoals - 1}><ArrowRight size={30} /></button>

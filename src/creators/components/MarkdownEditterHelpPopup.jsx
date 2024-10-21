@@ -26,12 +26,14 @@ const MarkdownEditorHelpPopup = () => {
         <CircleHelp />
       </button>
       {isOpen && (
-        <div className="popup" ref={popupRef}>
-          <h3>Instructions:</h3>
-          <p className="title"># - For Title</p>
-          <p className="heading">## - For Heading</p>
-          <p className="subheading">### - For SubHeading</p>
-          <p className="bold">**Word** - To render word in <b>Bold</b></p>
+        <div className="popup mtbg" ref={popupRef}>
+          <div className = "popup-content">
+            <h3>Instructions:</h3>
+            <p className="title"># - For Title</p>
+            <p className="heading">## - For Heading</p>
+            <p className="subheading">### - For SubHeading</p>
+            <p className="bold">**Word** - To render word in <b>Bold</b></p>
+          </div>
         </div>
       )}
 
