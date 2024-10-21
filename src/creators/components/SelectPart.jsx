@@ -55,12 +55,12 @@ const SelectPart = ({ moduleInfo, handlePartClick, currentPartId }) =>
     return (
         <div className = "flex-main-part-select-container">
                 {
-                    Object.keys(moduleInfo).map((module_id) =>
+                    Object.keys(moduleInfo)?.map((module_id) =>
                     (
                         <div className="button-container" key={module_id}>
                             <ModuleButton
                                 key={module_id}
-                                text={moduleInfo[module_id].module_name}
+                                text={moduleInfo[module_id]?.module_name}
                                 fontSize="0.8rem"
                                 alt_styling={showParts[module_id]}
                                 onClick={() => handleModuleClick(module_id)}
@@ -71,12 +71,12 @@ const SelectPart = ({ moduleInfo, handlePartClick, currentPartId }) =>
                                     <div className="part-container">
                                         <div className="matthew-test">
                                             {
-                                                moduleInfo[module_id].parts.map((part) =>
-                                            (
-                                                <button type="button" className={`part-button ${currentPartId === part.part_id ? 'alt-part-button' : ''}`} key={part.part_id} disabled = {currentPartId === part.part_id} onClick={() => handlePartClick(part.part_id)}>
-                                                    {part.part_name}
-                                                </button>
-                                            ))
+                                                moduleInfo[module_id]?.parts?.map((part) =>
+                                                (
+                                                    <button type="button" className={`part-button ${currentPartId === part?.part_id ? 'alt-part-button' : ''}`} key={part?.part_id} disabled = {currentPartId === part?.part_id} onClick={() => handlePartClick(part?.part_id)}>
+                                                        {part?.part_name}
+                                                    </button>
+                                                ))
                                             }
                                         </div>
                                     </div>

@@ -7,16 +7,20 @@ import './index.css';
 import { HeaderShownProvider } from './context/HeaderShownProvider.jsx';
 import { AuthProvider } from './context/AuthProvider.jsx';
 import { LogProvider } from './context/LogProvider.jsx';
+import { FooterShownProvider } from './context/FooterShownProvider.jsx';
+
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
   <AuthProvider>
     <LogProvider>
       <HeaderShownProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/*" element={<App />} />
+        <FooterShownProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/*" element={<App />} />
           </Routes>
-        </BrowserRouter>
+          </BrowserRouter>
+        </FooterShownProvider>
       </HeaderShownProvider>
     </LogProvider>
   </AuthProvider>

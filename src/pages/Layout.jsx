@@ -1,13 +1,16 @@
 import { Outlet } from "react-router-dom";
-
+import { useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import useHeaderShown from "../hooks/useHeaderShown";
+import useFooterShown from "../hooks/useFooterShown";
 import ScrollToTop from "../context/ScrollToTop";
 
 const Layout = ({ children }) =>
 {
     const { headerShown } = useHeaderShown();
+    const { footerShown } = useFooterShown();
+
 
     return (
         <div>
@@ -17,7 +20,7 @@ const Layout = ({ children }) =>
                 <Outlet />
                 {children}
             </main>
-            <Footer />
+            {footerShown && <Footer />}
         </div>
     )
 }

@@ -1,0 +1,29 @@
+.flex-page-container
+{
+   flex: 1;
+   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   
+   height: 99%;
+}
+
+   .creator-card-button
+   {
+      color: black;
+      transition: transform 0.2s ease-in-out;
+
+   }
+
+   .creator-card-button:hover
+   {
+      transform: scale(1.1);
+      transition: transform 0.2s ease-in-out;
+   }
+
+   .creator-card-button:active
+   {
+      transform: scale(0.7);
+   }

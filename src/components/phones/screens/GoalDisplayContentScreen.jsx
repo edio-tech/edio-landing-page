@@ -1,7 +1,8 @@
-import RenderMarkdown from '../../../components/MarkdownRenderer';
-
+import RenderMarkdownWithImages from '../../../components/RenderMarkdownWithImages';
 
 import '../../../styles/components/screens/goaldisplaycontentscreen.css';
+
+
 const GoalDisplayContentScreen = ({goalSummary, goalDisplayContent, goalCardColour}) =>
 {
     return (
@@ -11,7 +12,7 @@ const GoalDisplayContentScreen = ({goalSummary, goalDisplayContent, goalCardColo
                   {goalSummary}
                </div>
                <div className = "goal-display-content-text">
-                  <RenderMarkdown markdown={goalDisplayContent} />
+                  <RenderMarkdownWithImages markdown={goalDisplayContent} />
                </div>
             </div>
         </div>

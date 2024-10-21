@@ -1,6 +1,73 @@
+.photo-upload-container
+{
+    flex: 10;
+    height: 20vh;
+    margin: 20px;
+    border: 2px dashed black;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 5px;
+    
+
+    font-size: 0.9rem;
+}
+
+    .photo-upload-text-1
+    {
+        padding-bottom: 10px;
+    }
+
+    .photo-upload-icon
+    {
+        color: var(--clr-brand);
+    }
+
+    .photo-upload-text-2
+    {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .photo-upload-button
+    {
+        width: 80px;
+        text-decoration: none;
+        background-color: var(--clr-accent);
+        color: var(--clr-text-accent);
+        font-size: 0.8rem;
+        font-weight: var(--fw-medium);
+        /* padding: 0.75rem 3rem; */
+        border: none;
+        border-radius: 50vw;
+        padding: 5px;
+
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .photo-upload-button:hover
+    {
+        background-color: var(--clr-white);
+        color: var(--clr-accent);
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.placeholder-divs
+{
+    flex: 9;
+}
+
 .help-container {
+    flex: 2;
     position: relative;
-    padding-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .help-button {
@@ -50,3 +117,86 @@
 .bold {
     font-size: 0.8rem;
 }
+
+
+
+.upload-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 20px;
+}
+
+.upload-popup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80vw;
+    height: 50vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+    .photo-upload-success-title
+    {
+        font-size: 1.5rem;
+        padding-bottom: 40px;
+        padding-top: 20px;
+    }
+
+    .uploaded-image-preview
+    {
+        width: 20vw;
+    }
+
+    .cloudinary-url-container
+    {
+        padding-top: 40px;
+        padding-bottom: 20px;
+        max-width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .cloudinary-url
+        {
+            max-width: 90%;
+            flex: 6;
+        }
+
+        .copy-button-container
+        {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            height: 100%;
+        }
+
+        .copy-button
+        {
+            background: transparent;
+            border: none;
+        }
+
+        .copy-word
+        {
+            font-size: 0.8rem;
+            padding-top: 5px;
+        }
+
