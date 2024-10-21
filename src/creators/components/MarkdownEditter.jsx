@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, CircleX } from 'lucide-react';
 
 // Component imports
-import RenderMarkdown from '../../components/MarkdownRenderer';
+import MarkdownEdiiterTextBox from './MarkdownEdiiterTextBox';
 import Iphone11 from '../../components/phones/Iphone11';
 import GoalDisplayContentScreen from '../../components/phones/screens/GoalDisplayContentScreen';
 
@@ -113,7 +113,8 @@ const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoa
                         <input className = "summary-edit-text-box" type="text" value={goalSummary} onChange={(e) => setGoalSummary(e.target.value)} />
                     </div>
                     <div className="text-box-container">
-                        <textarea className="text-box" value={goalDisplayContent} onChange={(e) => setGoalDisplayContent(e.target.value)}></textarea>
+                    <textarea className="text-box mrg" value={goalDisplayContent} onChange={(e) => setGoalDisplayContent(e.target.value)}></textarea>
+                        {/* <MarkdownEdiiterTextBox goalDisplayContent={goalDisplayContent} setGoalDisplayContent={setGoalDisplayContent} /> */}
                     </div>
                 </div>
             </div>
@@ -131,12 +132,12 @@ const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoa
             { !isSmallScreen && (
                 <div className = "preview-area">
                     <Iphone11>
-                    <GoalDisplayContentScreen
-                        goalSummary={goalSummary}
-                        goalDisplayContent={goalDisplayContent}
-                        goalCardColour={goalCardColour}
-                    />
-                </Iphone11>
+                        <GoalDisplayContentScreen
+                            goalSummary={goalSummary}
+                            goalDisplayContent={goalDisplayContent}
+                            goalCardColour={goalCardColour}
+                        />
+                    </Iphone11>
                 </div>
             )}
 

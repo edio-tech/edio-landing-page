@@ -100,7 +100,7 @@ const EditChannelContent = () =>
             } else if (auth?.role == 'ADMIN')
             {
                 console.log('Admin detected, setting creator ID to default');
-                const creatorId = "66db1d1f3c984c1591813ef0";
+                const creatorId = "66daf2c9dcd7e663c50b2667";
                 fetchChannelInformation(creatorId);
             }
         }
