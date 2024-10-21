@@ -57,6 +57,13 @@
                 width: fit-content;
             }
 
+            .alt-part-button
+            {
+                color: var(--clr-brand);
+                text-decoration: underline;
+                text-decoration-color: var(--clr-brand);
+            }
+
             .part-button:hover
             {
                 color: var(--clr-brand);

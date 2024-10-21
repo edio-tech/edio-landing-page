@@ -2,10 +2,8 @@ import React from 'react';
 
 import '../../styles/components/iphone11.css';
 
-// Component Imports
-import GoalDisplayContentScreen from './screens/GoalDisplayContentScreen';
 
-const iPhone11 = ({infoForScreen}) => {
+const iPhone11 = ({ children }) => {
   return (
     <div className="iphone-container">
       <div className="iphone">
@@ -15,7 +13,7 @@ const iPhone11 = ({infoForScreen}) => {
                <div className="speaker"></div>
             </div>
             <div className = "square-screen-container">
-               <GoalDisplayContentScreen goalSummary={infoForScreen.goalSummary} goalDisplayContent={infoForScreen.goalDisplayContent} />
+               {children}
             </div>
          </div>
       </div>

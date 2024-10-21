@@ -6,31 +6,31 @@ import modulesAPI from '../../api/modules';
 
 // Styling
 import '../../styles/creators/components/selectsection.css';
-const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdownEditter, currentSectionDetail, setCurrentSectionDetail }) =>
+const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdownEditter, currentSectionDetail, setCurrentSectionDetail, sectionCardColour }) =>
 {
 
-    const [editSectionNameId, setEditSectionNameId] = useState('');
-    const [editedSectionName, setEditedSectionName] = useState('');
+    const [selectedSectionNameId, setSelectedSectionNameId] = useState('');
+    const [selectedSectionName, setSelectedSectionName] = useState('');
 
     const handleEditSectionNameClick = (section_id) =>
     {
-        setEditSectionNameId(section_id);
-        setEditedSectionName(currentPartsDetail[section_id].section_name);
+        setSelectedSectionNameId(section_id);
+        setSelectedSectionName(currentPartsDetail[section_id].section_name);
     }
 
     const handleSaveSectionNameClick = () =>
     {
         // first update DB
-        modulesAPI.updateSectionName(editSectionNameId, {section_name: editedSectionName}).then((res) =>
+        modulesAPI.updateSectionName(selectedSectionNameId, {section_name: selectedSectionName}).then((res) =>
         {
             console.log(res);
         });
 
         // Next update the state
-        setEditSectionNameId('');
-        setEditedSectionName('');
+        setSelectedSectionNameId('');
+        setSelectedSectionName('');
         const currentSectionObject = currentSectionDetail;
-        currentSectionObject.section_name = editedSectionName;
+        currentSectionObject.section_name = selectedSectionName;
         setCurrentSectionDetail(currentSectionObject);
     }
 
@@ -39,8 +39,8 @@ const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdow
             setCurrentGoalIndex(0);
             setCurrentSectionDetail(currentPartsDetail[section_id]);
             setShowMarkdownEditter(true);
-            setEditSectionNameId('');
-            setEditedSectionName('');
+            setSelectedSectionNameId('');
+            setSelectedSectionName('');
         }
 
 
@@ -73,15 +73,15 @@ const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdow
                     <>
                     <div className = "section-container">
                         {
-                            editSectionNameId === section_id ?
+                            selectedSectionNameId === section_id ?
                             (
                                 <div className = "section-edit-button">
-                                    <input type="text" value={editedSectionName} onChange={(e) => setEditedSectionName(e.target.value)} />
+                                    <textarea className = "section-edit-text-box" type="text" value={selectedSectionName} onChange={(e) => setSelectedSectionName(e.target.value)} />
                                 </div>
                             ) : (
                             <>
-                                <button className = "section-button" onClick={() => handleSectionClick(section_id)}>
-                                    {currentPartsDetail[section_id].section_name}
+                                <button style={{backgroundColor: currentSectionDetail && currentSectionDetail._id === section_id ? '' : sectionCardColour}} className = {`section-button ${currentSectionDetail && currentSectionDetail._id === section_id ? 'alt-section-button' : ''}`} onClick={() => handleSectionClick(section_id)}>
+                                    <div className = "section-button-text">{currentPartsDetail[section_id].section_name}</div>
                                 </button>
                                 { 
                                     currentSectionDetail && currentSectionDetail._id === section_id &&
@@ -95,9 +95,9 @@ const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdow
                         )}
                     </div>
                     {
-                        editSectionNameId === section_id && (
-                            <div className = "section-edit-buttons-container">
-                                <button onClick={() => setEditSectionNameId('')} className="cancel-section-button"><CircleX /></button>
+                        selectedSectionNameId === section_id && (
+                            <div className = "section-save-cancel-buttons-container">
+                                <button onClick={() => setSelectedSectionNameId('')} className="cancel-section-button"><CircleX /></button>
                                 <button onClick={handleSaveSectionNameClick} className = "save-section-button"><CircleCheck /></button>
                             </div>
                         )

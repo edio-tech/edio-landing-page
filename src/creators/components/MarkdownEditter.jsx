@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, CircleX } from 'lucide-react';
 // Component imports
 import RenderMarkdown from '../../components/MarkdownRenderer';
 import Iphone11 from '../../components/phones/Iphone11';
+import GoalDisplayContentScreen from '../../components/phones/screens/GoalDisplayContentScreen';
 
 // API Imports
 import questionsAPI from '../../api/questions';
@@ -12,21 +13,18 @@ import questionsAPI from '../../api/questions';
 import '../../styles/creators/components/markdowneditter.css';
 
 
-const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoalIndex }) =>
-{
-    
+const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoalIndex, goalCardColour, isSmallScreen }) =>
+{   
 
     const [currentGoalDetail, setCurrentGoalDetail] = useState(null);
     const [totalGoals, setTotalGoals] = useState(0);
 
     // Content displayed in the Markdown Editter
     const [goalDisplayContent, setGoalDisplayContent] = useState('');
-    const [goalDisplayContentChanged, setGoalDisplayContentChanged] = useState(false);
-
     const [goalSummary, setGoalSummary] = useState('');
-    const [goalSummaryChanged, setGoalSummaryChanged] = useState(false);
+    const [goalContentChanged, setGoalContentChanged] = useState(false);
 
-    // Update the Cards when a new section is selected
+    // Update the Goal Data when a new section is selected
     useEffect(() =>
     {
         if (currentSectionDetail)
@@ -51,51 +49,44 @@ const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoa
         // Check if its different from the current goal display content
         if (currentGoalDetail && (goalDisplayContent !== currentGoalDetail.display_content))
         {
-            setGoalDisplayContentChanged(true);
+            setGoalContentChanged(true);
         }
     }, [goalDisplayContent]);
-
-    const handleRevertGoalDisplayContent = () =>
-    {
-        setGoalDisplayContent(currentGoalDetail.display_content);
-        setGoalDisplayContentChanged(false);
-    }
-
-    const handleSaveGoalDisplayContent = () =>
-    {
-        // update the goal display content in the database
-        questionsAPI.updateGoalDisplayContent(currentGoalDetail._id, {display_content: goalDisplayContent});
-
-        // Update the state
-        setCurrentGoalDetail({...currentGoalDetail, display_content: goalDisplayContent});
-        setGoalDisplayContentChanged(false);
-    }
 
     // Handle when the goal summary is changed
     useEffect(() =>
     {
         if (currentGoalDetail && (goalSummary !== currentGoalDetail.summary))
         {
-            setGoalSummaryChanged(true);
+            setGoalContentChanged(true);
         }
     }, [goalSummary]);
 
-    const handleSaveGoalSummary = () =>
+    const handleRevertGoalContent = () =>
     {
-        // Update the goal summary in the database
-        questionsAPI.updateGoalSummary(currentGoalDetail._id, {summary: goalSummary});
+        setGoalDisplayContent(currentGoalDetail.display_content);
+        setGoalSummary(currentGoalDetail.summary);
+        setGoalContentChanged(false);
+    }
+
+    const handleSaveGoalContent = () =>
+    {
+        if (currentGoalDetail && (goalDisplayContent !== currentGoalDetail.display_content))
+        {
+            // update the goal display content in the database
+            questionsAPI.updateGoalDisplayContent(currentGoalDetail._id, {display_content: goalDisplayContent});
+        }
+
+        if (currentGoalDetail && (goalSummary !== currentGoalDetail.summary))
+        {
+            // Update the goal summary in the database
+            questionsAPI.updateGoalSummary(currentGoalDetail._id, {summary: goalSummary});
+        }
 
         // Update the state
-        setCurrentGoalDetail({...currentGoalDetail, summary: goalSummary});
-        setGoalSummaryChanged(false);
+        setCurrentGoalDetail({...currentGoalDetail, summary: goalSummary, display_content: goalDisplayContent});
+        setGoalContentChanged(false);
     }
-
-    const handleRevertGoalSummary = () =>
-    {
-        setGoalSummary(currentGoalDetail.summary);
-        setGoalSummaryChanged(false);
-    }
-
 
     const handlePreviousGoal = () =>
     {
@@ -117,34 +108,37 @@ const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoa
                 <div className="editor">
                     Editor
                 </div>
-                <div className = "title-edit-container">
-                { goalSummaryChanged ? ( <button className = "cancel-summary-edit-button" onClick={handleRevertGoalSummary}>Revert</button>  ) : (
-                    <div className = "summary-centering-placeholder"></div>
-                    )}
-                    <input className = "summary-edit-text-box" type="text" value={goalSummary} onChange={(e) => setGoalSummary(e.target.value)} />
-                    { goalSummaryChanged ? ( <button className = "confirm-summary-edit-button" onClick={handleSaveGoalSummary}>Save</button>  ) : (
-                    <div className = "summary-centering-placeholder"></div>
-                    )}
+                <div className = "markdown-editor-card">
+                    <div className = "title-edit-container">
+                        <input className = "summary-edit-text-box" type="text" value={goalSummary} onChange={(e) => setGoalSummary(e.target.value)} />
+                    </div>
+                    <div className="text-box-container">
+                        <textarea className="text-box" value={goalDisplayContent} onChange={(e) => setGoalDisplayContent(e.target.value)}></textarea>
+                    </div>
                 </div>
-                <div className="text-box-container">
-                    <textarea className="text-box" value={goalDisplayContent} onChange={(e) => setGoalDisplayContent(e.target.value)}></textarea>
-                </div>
+            </div>
+
+            <div className = "goal-progress-bar-container">
+                    <button onClick={handleRevertGoalContent} className = "cancel-goal-edit-button" disabled={!goalContentChanged}>Revert</button>
+                {/* <div className = "goal-progress-bar" style={{width: `${(currentGoalIndex) / (totalGoals - 1) * 100}%`}}></div> */}
+                <div className = "goal-progress-bar-text"> Card {currentGoalIndex + 1} of {totalGoals} </div>
+                    <button onClick={handleSaveGoalContent} className = "save-goal-edit-button" disabled={!goalContentChanged}>Save</button>
             </div>
 
             <div className = "left-button-container">
                 <button className = "arrow-button" onClick={handlePreviousGoal} disabled={currentGoalIndex === 0}><ArrowLeft size={30} /></button>
             </div>
-
-            <div className = "goal-progress-bar-container">
-                    <button onClick={handleRevertGoalDisplayContent} className = "cancel-goal-edit-button" disabled={!goalDisplayContentChanged}>Revert</button>
-                {/* <div className = "goal-progress-bar" style={{width: `${(currentGoalIndex) / (totalGoals - 1) * 100}%`}}></div> */}
-                <div className = "goal-progress-bar-text"> Card {currentGoalIndex + 1} of {totalGoals} </div>
-                    <button onClick={handleSaveGoalDisplayContent} className = "save-goal-edit-button" disabled={!goalDisplayContentChanged}>Save</button>
-            </div>
-
-            <div className = "preview-area">
-                <Iphone11 infoForScreen={{goalSummary, goalDisplayContent}} />
-            </div>
+            { !isSmallScreen && (
+                <div className = "preview-area">
+                    <Iphone11>
+                    <GoalDisplayContentScreen
+                        goalSummary={goalSummary}
+                        goalDisplayContent={goalDisplayContent}
+                        goalCardColour={goalCardColour}
+                    />
+                </Iphone11>
+                </div>
+            )}
 
             <div className = "right-button-container">
                 <button className = "arrow-button" onClick={handleNextGoal} disabled={currentGoalIndex === totalGoals - 1}><ArrowRight size={30} /></button>
