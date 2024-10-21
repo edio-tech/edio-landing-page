@@ -28,6 +28,7 @@
 
             font-size: 1.5rem;
             font-weight: bold;
+            color: var(--clr-accent);
         }
 
         .title-edit-container
@@ -36,34 +37,16 @@
             justify-content: center;
             align-items: center;
 
-            padding-bottom: 30px;
-
+            padding-bottom: 10px;
+            padding-top: 30px;
         }
-
-            .summary-centering-placeholder
-            {
-                flex: 1;
-            }
-
-            .cancel-summary-edit-button
-            {
-                color: red;
-                flex: 1;
-            }
 
             .summary-edit-text-box
             {
 
                 flex: 9;
                 text-align: center;
-                font-size: 1.5rem;
-                font-weight: bold;
-            }
-
-            .confirm-summary-edit-button
-            {
-                color: green;
-                flex: 1;
+                font-size: 1.3rem;
             }
 
         .text-box-container 

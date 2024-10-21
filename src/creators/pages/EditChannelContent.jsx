@@ -12,6 +12,7 @@ import useLog from '../../hooks/useLog';
 // API imports
 import usersAPI from '../../api/users';
 import modulesAPI from '../../api/modules';
+
 // Styling
 import '../../styles/creators/pages/editchannelcontent.css';
 
@@ -22,9 +23,9 @@ const EditChannelContent = () =>
     const creatorId = "66db1d1f3c984c1591813ef0"; // This should be passed as a prop
 
     // The Module Info for each creator will be loaded when you enter this page, could potentially store this in a global context eventually
-    const [ModuleInfo, setModuleInfo] = useState(null);
-    const [ModuleInfoLoading, setModuleInfoLoading] = useState(true);
-    const [ModuleInfoError, setModuleInfoError] = useState(null);
+    const [creatorInfo, setCreatorInfo] = useState(null);
+    const [creatorInfoLoading, setCreatorInfoLoading] = useState(true);
+    const [creatorInfoError, setCreatorInfoError] = useState(null);
     const [creatorName, setCreatorName] = useState(null);
     const public_facing_error_message = "An unexpected error occurred when trying to fetch your Channel Information.Please try again. If the problem persists, contact support.";
 
@@ -47,9 +48,9 @@ const EditChannelContent = () =>
     {
         const fetchChannelInformation = async () =>
         {
-            setModuleInfoLoading(true);
+            setCreatorInfoLoading(true);
             setPartsDetailLoading(true);
-            setModuleInfoError(null);
+            setCreatorInfoError(null);
             setPartsDetailError(null);
             try
             {
@@ -60,17 +61,17 @@ const EditChannelContent = () =>
                 {
                     if (development)
                     {
-                      setModuleInfoError(res.data.detail)
+                      setCreatorInfoError(res.data.detail)
                       console.log(res.data);
                     } else {
-                      setModuleInfoError(public_facing_error_message)
+                      setCreatorInfoError(public_facing_error_message)
                     }
                     return
                 }
 
                 if (development)
                 {
-                    console.log("Module Info: ");
+                    console.log("Creator Info: ");
                     console.log(res.data);
                 }
 
@@ -79,10 +80,9 @@ const EditChannelContent = () =>
                     console.log('Please note that this is not set up for modules with single parts yet and therefore they will not be displayed.');
                 }
 
-                const moduleInfoData = res.data.modules_multiple_parts;
-                setModuleInfo(moduleInfoData);
+                setCreatorInfo(res.data);
                 setCreatorName(res.data.name);
-                setModuleInfoLoading(false);
+                setCreatorInfoLoading(false);
 
                 // Next get the part detail info (The section and Goal information for each part)
                 const res_2 = await modulesAPI.getAllPartsInfo(creatorId);
@@ -110,7 +110,7 @@ const EditChannelContent = () =>
                 setPartsDetailError(public_facing_error_message)
 
             } finally {
-                setModuleInfoLoading(false);
+                setCreatorInfoLoading(false);
                 setPartsDetailLoading(false);
             }
         }
@@ -136,7 +136,7 @@ const EditChannelContent = () =>
     return (
         <div className = "flex-main-edit-channel-container">
             {
-                ModuleInfoLoading ? ( <div className = "loading-icon">Loading...</div> ) : 
+                creatorInfoLoading ? ( <div className = "loading-icon">Loading...</div> ) : 
                 (
                     <>
                         <div className = "select-module-container">
@@ -144,7 +144,7 @@ const EditChannelContent = () =>
                         </div>
                         <div className = "module-select-screeen">
                             {/* Simply need to add a SelectModule component here for any module that only has one part */}
-                            <SelectPart moduleInfo={ModuleInfo} handlePartClick={handlePartClick}/>
+                            <SelectPart moduleInfo={creatorInfo.modules_multiple_parts} handlePartClick={handlePartClick} currentPartId={currentPartId}/>
                         </div>
                         {
                             !partSelected ? ( <div className = "select-course-window">Please select a Course.</div> ) : (
@@ -165,6 +165,7 @@ const EditChannelContent = () =>
                                 setShowMarkdownEditter={setShowMarkdownEditter}
                                 currentSectionDetail={currentSectionDetail}
                                 setCurrentSectionDetail={setCurrentSectionDetail}
+                                sectionCardColour={creatorInfo.section_background_colour}
                             />
                         </div>
                         <div className = "goal-editter-container">
@@ -174,6 +175,7 @@ const EditChannelContent = () =>
                                         currentSectionDetail={currentSectionDetail}
                                         currentGoalIndex={currentGoalIndex}
                                         setCurrentGoalIndex={setCurrentGoalIndex}
+                                        goalCardColour={creatorInfo.goal_background_colour}
                                     />                     
                                 ) : (
                                     <div className = "select-section-window">Please select a section above.</div>

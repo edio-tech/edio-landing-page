@@ -1,14 +1,14 @@
 
     .iphone-container {
       height: 68vh;
-      width: 40vh;
+      width: 35vh;
       display: flex;
       justify-content: center;
       align-items: center;
     }
     .iphone {
       height: 68vh;
-      width: 40vh;
+      width: 35vh;
       flex: 1;
       aspect-ratio: 375 / 812;
       background-color: #1a1a1a;

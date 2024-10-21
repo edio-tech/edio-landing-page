@@ -20,7 +20,7 @@ const ModuleButton = ({text, buttonHeight, fontSize, onClick, alt_styling}) =>
     
 
 
-const SelectPart = ({ moduleInfo, handlePartClick }) =>
+const SelectPart = ({ moduleInfo, handlePartClick, currentPartId }) =>
 {
 
     const [showParts, setShowParts] = useState({});
@@ -57,7 +57,7 @@ const SelectPart = ({ moduleInfo, handlePartClick }) =>
                 {
                     Object.keys(moduleInfo).map((module_id) =>
                     (
-                        <div className="button-container">
+                        <div className="button-container" key={module_id}>
                             <ModuleButton
                                 key={module_id}
                                 text={moduleInfo[module_id].module_name}
@@ -73,9 +73,9 @@ const SelectPart = ({ moduleInfo, handlePartClick }) =>
                                             {
                                                 moduleInfo[module_id].parts.map((part) =>
                                             (
-                                                <div type="button" className="part-button" key={part.part_id} onClick={() => handlePartClick(part.part_id)}>
+                                                <button type="button" className={`part-button ${currentPartId === part.part_id ? 'alt-part-button' : ''}`} key={part.part_id} disabled = {currentPartId === part.part_id} onClick={() => handlePartClick(part.part_id)}>
                                                     {part.part_name}
-                                                </div>
+                                                </button>
                                             ))
                                             }
                                         </div>
