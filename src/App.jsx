@@ -21,7 +21,7 @@ import RequireAdmin from './checks/RequireAdmin';
 import EditChannelContent from './creators/pages/EditChannelContent';
 
 // Admin Pages
-// ...
+import SelectCreator from './admin/pages/SelectCreator';
 
 const App = () =>
 {
@@ -42,8 +42,13 @@ const App = () =>
 				{/* <Route path="/register" element={<Register />} /> */}
 
 				<Route element={<RequireCreator />}>
-					<Route path="/edit-channel-content" element={<EditChannelContent />} />
+					<Route path="/edit-channel-content/:creator_id" element={<EditChannelContent />} />
 				</Route>
+
+				<Route element={<RequireAdmin />}>
+					<Route path="/select-creator" element={<SelectCreator />} />
+				</Route>
+
 			</Route>
 		</Routes>
 	)

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 // Component imports
 import MarkdownEditter from '../components/MarkdownEditter';
@@ -22,6 +23,7 @@ const EditChannelContent = () =>
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     useEffect(() =>
     {
+
         // Function to check screen width
         const handleResize = () => {
           if (window.innerWidth <= 1115) {
@@ -43,6 +45,8 @@ const EditChannelContent = () =>
         };
     }, []);
 
+    const params = useParams();
+    const creator_id = params.creator_id;
     const { development } = useLog();
 
     const [creatorIdError, setCreatorIdError] = useState(null);
@@ -99,9 +103,7 @@ const EditChannelContent = () =>
 
             } else if (auth?.role == 'ADMIN')
             {
-                console.log('Admin detected, setting creator ID to default');
-                const creatorId = "66daf2c9dcd7e663c50b2667";
-                fetchChannelInformation(creatorId);
+                fetchChannelInformation(creator_id);
             }
         }
         asyncUseEffect();
@@ -267,7 +269,7 @@ const EditChannelContent = () =>
                             }
                         </div>
                         <div className="help-screeen">
-                            <MarkdownEditterHelpPopup />
+                            <MarkdownEditterHelpPopup goal_id={currentSectionDetail.goals[currentGoalIndex]._id} />
                         </div>
 
                                         </>

@@ -36,10 +36,10 @@ const Login = () =>
         let redirect;
         if ( userAuthInfo.role == 'ADMIN' )
         {
-            redirect = '/edit-channel-content'
+            redirect = '/select-creator'
         } else if ( userAuthInfo.role == 'CREATOR' )
         {
-            redirect = '/edit-channel-content'
+            redirect = '/edit-channel-content/null'
         } else
         {
             redirect = '/login'

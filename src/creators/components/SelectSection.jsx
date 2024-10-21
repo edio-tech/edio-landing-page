@@ -55,7 +55,7 @@ const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdow
         )
     }
 
-    if (currentPartsDetail.length === 0)
+    if (currentPartsDetail?.length === 0)
     {
         return (
             <div className = "select-section-container">
@@ -68,7 +68,7 @@ const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdow
     return (
         <div className = "select-section-container">
             {
-                Object.keys(currentPartsDetail).map((section_id) =>
+                Object.keys(currentPartsDetail)?.map((section_id) =>
                 (
                     <>
                     <div className = "section-container">

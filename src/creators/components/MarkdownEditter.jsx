@@ -113,11 +113,14 @@ const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoa
                         <input className = "summary-edit-text-box" type="text" value={goalSummary} onChange={(e) => setGoalSummary(e.target.value)} />
                     </div>
                     <div className="text-box-container">
-                    <textarea className="text-box mrg" value={goalDisplayContent} onChange={(e) => setGoalDisplayContent(e.target.value)}></textarea>
+                    <textarea className="text-box" value={goalDisplayContent} onChange={(e) => setGoalDisplayContent(e.target.value)}></textarea>
                         {/* <MarkdownEdiiterTextBox goalDisplayContent={goalDisplayContent} setGoalDisplayContent={setGoalDisplayContent} /> */}
                     </div>
                 </div>
             </div>
+
+            {/* <div className = "test mtbg">
+            </div> */}
 
             <div className = "goal-progress-bar-container">
                     <button onClick={handleRevertGoalContent} className = "cancel-goal-edit-button" disabled={!goalContentChanged}>Revert</button>
