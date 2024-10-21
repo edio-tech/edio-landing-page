@@ -1,0 +1,68 @@
+
+    .iphone-container {
+      height: 68vh;
+      width: 40vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .iphone {
+      height: 68vh;
+      width: 40vh;
+      flex: 1;
+      aspect-ratio: 375 / 812;
+      background-color: #1a1a1a;
+      border-radius: 55px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+    }
+    .screen {
+      flex: 1;
+      position: absolute;
+      top: 1.35%;
+      left: 2.93%;
+      right: 2.93%;
+      bottom: 1.35%;
+      background-color: white;
+      border-radius: 55px;
+
+      display: flex;
+    }
+    .square-screen-container
+    {
+        flex: 1;
+        margin: 15px;
+
+        display: flex;
+        flex-direction: column;
+    }
+    .notch {
+      position: absolute;
+      width: 55.73%;
+      height: 3.69%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #1a1a1a;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .camera {
+      width: 5.74%;
+      height: 40%;
+      background-color: #1a1a1a;
+      border: 5px solid #2a2a2a;
+      border-radius: 50%;
+      margin-right: 3.83%;
+    }
+    .speaker {
+      width: 28.71%;
+      height: 20%;
+      background-color: #1a1a1a;
+      border: 0.96% solid #2a2a2a;
+      border-radius: 1.44%;
+    }

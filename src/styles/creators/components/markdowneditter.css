@@ -14,15 +14,12 @@
     {
         grid-column: 1 / 3;
         grid-row: 1 / 1;
-        margin: 1rem;
-        margin-top: 20px;
-        margin-bottom: 20px;
 
         display: flex;
         flex-direction: column;
     }
 
-        .instructions-container
+        .editor
         {
             flex: 1;
             display: flex;
@@ -33,9 +30,46 @@
             font-weight: bold;
         }
 
+        .title-edit-container
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding-bottom: 30px;
+
+        }
+
+            .summary-centering-placeholder
+            {
+                flex: 1;
+            }
+
+            .cancel-summary-edit-button
+            {
+                color: red;
+                flex: 1;
+            }
+
+            .summary-edit-text-box
+            {
+
+                flex: 9;
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            .confirm-summary-edit-button
+            {
+                color: green;
+                flex: 1;
+            }
+
         .text-box-container 
         {
             flex: 8;
+            padding: 40px;
         }
 
         .text-box
@@ -71,11 +105,12 @@
         .arrow-button:disabled
         {
             background-color: gray;
+            cursor: not-allowed;
         }
 
     .goal-progress-bar-container
     {
-        margin: 1rem;
+        height: 100%;
         grid-row: 2 / 2;
         grid-column: 2 / 4; 
 
@@ -84,12 +119,60 @@
         align-items: center;
     }
 
-        .goal-progress-bar
+        /* .goal-progress-bar
         {
             height: 100%;
             background-color: green;
+        } */
+
+        .cancel-goal-edit-button
+        {
+            padding: 10px;
+            background-color: red;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-    
+
+        .cancel-goal-edit-button:hover
+        {
+            background-color: var(--clr-white);
+            color: red;
+        }
+
+        .cancel-goal-edit-button:disabled
+        {
+            background-color: gray;
+            cursor: not-allowed;
+            color: black;
+        }
+
+        .save-goal-edit-button
+        {
+            padding: 10px;
+            background-color: green;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .save-goal-edit-button:hover
+        {
+            background-color: var(--clr-white);
+            color: green;
+        }
+
+        .save-goal-edit-button:disabled
+        {
+            background-color: gray;
+            cursor: not-allowed;
+            color: black;
+        }
+
+        .goal-progress-bar-text
+        {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
     .right-button-container
     {
         grid-row: 2 / 2;
@@ -104,10 +187,20 @@
     {
         grid-column: 3 / 5;
         grid-row: 1 / 1;
-        margin: 1rem;
-        margin-top: 20px;
-        margin-bottom: 20px;
+
+        height: 68vh;
 
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
     }
+
+        .summary-container
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 2rem;
+            font-weight: bold;
+        }

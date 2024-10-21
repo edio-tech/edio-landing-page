@@ -133,19 +133,8 @@ const EditChannelContent = () =>
         }
     }, [partsDetail, currentPartId]);
 
-
-    // Handles the click event for the section buttons
-    const handleSectionClick = (section_id) =>
-    {
-        setCurrentGoalIndex(0);
-        setCurrentSectionDetail(currentPartsDetail[section_id]);
-        setShowMarkdownEditter(true);
-    }
-
-
-
     return (
-        <div className = "flex-main-edit-channel-container mtrg">
+        <div className = "flex-main-edit-channel-container">
             {
                 ModuleInfoLoading ? ( <div className = "loading-icon">Loading...</div> ) : 
                 (
@@ -161,19 +150,33 @@ const EditChannelContent = () =>
                             !partSelected ? ( <div className = "select-course-window">Please select a Course.</div> ) : (
                                 <>
                                 {
-                                    partsDetailLoading ? ( <div className = "select-course-window">Loading the contents of your course. Please wait...</div> ) :
+                                    partsDetailLoading ?
                                     (
+                                        <div className = "select-course-window">
+                                            Loading the contents of your course. Please wait...
+                                        </div>
+                                    ) : (
                                         <>
 
                         <div className = "section-select-container">
-                            <SelectSection currentPartsDetail={currentPartsDetail} handleSectionClick={handleSectionClick}/>
+                            <SelectSection
+                                currentPartsDetail={currentPartsDetail}
+                                setCurrentGoalIndex={setCurrentGoalIndex}
+                                setShowMarkdownEditter={setShowMarkdownEditter}
+                                currentSectionDetail={currentSectionDetail}
+                                setCurrentSectionDetail={setCurrentSectionDetail}
+                            />
                         </div>
                         <div className = "goal-editter-container">
                             {
                                 showMarkdownEditter ? (
-                                    <MarkdownEditter currentSectionDetail={currentSectionDetail} currentGoalIndex={currentGoalIndex} setCurrentGoalIndex={setCurrentGoalIndex} />
+                                    <MarkdownEditter
+                                        currentSectionDetail={currentSectionDetail}
+                                        currentGoalIndex={currentGoalIndex}
+                                        setCurrentGoalIndex={setCurrentGoalIndex}
+                                    />                     
                                 ) : (
-                                    <div className = "select-section-window">Please select a section.</div>
+                                    <div className = "select-section-window">Please select a section above.</div>
                                 )
                             }
                         </div>

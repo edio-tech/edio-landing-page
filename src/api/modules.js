@@ -14,6 +14,12 @@ class ModulesAPI
     {
         return axiosConfig.get(`${baseURL}/parts/get-all-parts-info-for-creator/${creator_id}`);
     }
+
+    // Sections
+    updateSectionName(section_id, body)
+    {
+        return axiosConfig.patch(`${baseURL}/sections/update-section-name/${section_id}`, body);
+    }
 }
 
 const modulesAPI = new ModulesAPI();
