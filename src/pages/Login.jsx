@@ -50,7 +50,7 @@ const Login = () =>
             'has_password': true,
             'token': userDetails['token']
         }
-        if ( userAuth['role'] === 'ADMIN' )
+        if ( userAuth['role'] === 'ADMIN' || userAuth['role'] === 'CREATOR' )
         { 
             Cookies.set('jwtToken', userDetails['token'], { expires: 365 });
             setAuth(userAuth);
