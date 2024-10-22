@@ -6,6 +6,9 @@ import modulesAPI from '../../api/modules';
 
 // Styling
 import '../../styles/creators/components/selectsection.css';
+
+
+
 const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdownEditter, currentSectionDetail, setCurrentSectionDetail, sectionCardColour }) =>
 {
 

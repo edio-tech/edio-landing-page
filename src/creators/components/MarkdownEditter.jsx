@@ -13,7 +13,7 @@ import questionsAPI from '../../api/questions';
 import '../../styles/creators/components/markdowneditter.css';
 
 
-const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoalIndex, goalCardColour, isSmallScreen }) =>
+const MarkdownEditter = ({ currentSectionDetail, setCurrentSectionDetail, currentGoalIndex, setCurrentGoalIndex, goalCardColour, isSmallScreen }) =>
 {   
 
     const [currentGoalDetail, setCurrentGoalDetail] = useState(null);
@@ -69,22 +69,31 @@ const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoa
         setGoalContentChanged(false);
     }
 
-    const handleSaveGoalContent = () =>
+    const handleSaveGoalContent = (goal_id, goal_index) =>
     {
         if (currentGoalDetail && (goalDisplayContent !== currentGoalDetail.display_content))
         {
             // update the goal display content in the database
-            questionsAPI.updateGoalDisplayContent(currentGoalDetail._id, {display_content: goalDisplayContent});
+            questionsAPI.updateGoalDisplayContent(goal_id, {display_content: goalDisplayContent});
         }
 
         if (currentGoalDetail && (goalSummary !== currentGoalDetail.summary))
         {
             // Update the goal summary in the database
-            questionsAPI.updateGoalSummary(currentGoalDetail._id, {summary: goalSummary});
+            questionsAPI.updateGoalSummary(goal_id, {summary: goalSummary});
         }
 
         // Update the state
-        setCurrentGoalDetail({...currentGoalDetail, summary: goalSummary, display_content: goalDisplayContent});
+        const currentGoalObject = currentGoalDetail;
+        currentGoalObject.summary = goalSummary;
+        currentGoalObject.display_content = goalDisplayContent;
+        setCurrentGoalDetail(currentGoalObject);
+
+        // Rebuild the current section detail
+        const currentSectionObject = currentSectionDetail;
+        currentSectionObject.goals[goal_index] = currentGoalObject;
+        setCurrentSectionDetail(currentSectionObject);
+
         setGoalContentChanged(false);
     }
 
@@ -126,7 +135,7 @@ const MarkdownEditter = ({ currentSectionDetail, currentGoalIndex, setCurrentGoa
                     <button onClick={handleRevertGoalContent} className = "cancel-goal-edit-button" disabled={!goalContentChanged}>Revert</button>
                 {/* <div className = "goal-progress-bar" style={{width: `${(currentGoalIndex) / (totalGoals - 1) * 100}%`}}></div> */}
                 <div className = "goal-progress-bar-text"> Card {currentGoalIndex + 1} of {totalGoals} </div>
-                    <button onClick={handleSaveGoalContent} className = "save-goal-edit-button" disabled={!goalContentChanged}>Save</button>
+                    <button onClick={() => handleSaveGoalContent(currentGoalDetail?._id, currentGoalIndex)} className = "save-goal-edit-button" disabled={!goalContentChanged}>Save</button>
             </div>
 
             <div className = "left-button-container">

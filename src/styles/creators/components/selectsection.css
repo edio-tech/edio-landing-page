@@ -103,6 +103,7 @@
 
     .section-save-cancel-buttons-container
     {
+        min-width: 24px;
         display: flex;
         flex-direction: column;
     }

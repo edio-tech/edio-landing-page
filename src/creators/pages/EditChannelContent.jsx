@@ -263,6 +263,7 @@ const EditChannelContent = () =>
                                 showMarkdownEditter ? (
                                     <MarkdownEditter
                                         currentSectionDetail={currentSectionDetail}
+                                        setCurrentSectionDetail={setCurrentSectionDetail}
                                         currentGoalIndex={currentGoalIndex}
                                         setCurrentGoalIndex={setCurrentGoalIndex}
                                         goalCardColour={creatorInfo?.goal_background_colour}
@@ -274,7 +275,7 @@ const EditChannelContent = () =>
                             }
                         </div>
                         <div className="help-screeen">
-                            <MarkdownEditterHelpPopup goal_id={currentSectionDetail?.goals[currentGoalIndex]._id} />
+                            <MarkdownEditterHelpPopup goal_id={currentSectionDetail?.goals[currentGoalIndex]?._id} />
                         </div>
 
                                         </>
