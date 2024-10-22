@@ -125,7 +125,7 @@ const MarkdownEditorHelpPopup = ({goal_id}) => {
     <div className = "placeholder-divs"></div>
     <Form.Root>
         <Form.Field name="upload-photo">
-            <div {...getRootProps()} className = "photo-upload-container mgg">
+            <div {...getRootProps()} className = "photo-upload-container">
                 <input {...getInputProps()} />
                 { isDragActive ? ( <div className = "photo-upload-text-1">Release to upload</div> ) :
                 (
