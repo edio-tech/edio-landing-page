@@ -56,6 +56,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow-y: scroll;
+        }
+
+        .section-button-text::-webkit-scrollbar
+        {
+            display: none;
         }
 
     .alt-section-button
