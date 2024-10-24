@@ -127,7 +127,7 @@ const EditChannelContent = () =>
 
     // Each part detail info (Sections and Goals) will be loaded after the entire page is loaded and stored in state on this page, so each component can access it easily
 
-    const [partsDetail, setPartsDetail] = useState([]);
+    const [partsDetail, setPartsDetail] = useState({});
     const [partsDetailLoading, setPartsDetailLoading] = useState(true);
     const [partsDetailError, setPartsDetailError] = useState(null);
 

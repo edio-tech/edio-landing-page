@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Pencil, CircleX, CircleCheck } from 'lucide-react';
 
 // API imports
@@ -12,29 +12,30 @@ import '../../styles/creators/components/selectsection.css';
 const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdownEditter, currentSectionDetail, setCurrentSectionDetail, sectionCardColour }) =>
 {
 
-    const [selectedSectionNameId, setSelectedSectionNameId] = useState('');
-    const [selectedSectionName, setSelectedSectionName] = useState('');
+    const [editSectionNameId, setEditSectionNameId] = useState('');
+    const [editSectionName, setEditSectionName] = useState('');
 
     const handleEditSectionNameClick = (section_id) =>
     {
-        setSelectedSectionNameId(section_id);
-        setSelectedSectionName(currentPartsDetail[section_id].section_name);
+        setEditSectionNameId(section_id);
+        setEditSectionName(currentPartsDetail[section_id].section_name);
     }
 
     const handleSaveSectionNameClick = () =>
     {
         // first update DB
-        modulesAPI.updateSectionName(selectedSectionNameId, {section_name: selectedSectionName}).then((res) =>
+        modulesAPI.updateSectionName(editSectionNameId, {section_name: editSectionName}).then((res) =>
         {
             console.log(res);
         });
 
         // Next update the state
-        setSelectedSectionNameId('');
-        setSelectedSectionName('');
         const currentSectionObject = currentSectionDetail;
-        currentSectionObject.section_name = selectedSectionName;
+        currentSectionObject.section_name = editSectionName;
         setCurrentSectionDetail(currentSectionObject);
+
+        setEditSectionNameId('');
+        setEditSectionName('');
     }
 
     const handleSectionClick = (section_id) =>
@@ -42,8 +43,8 @@ const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdow
             setCurrentGoalIndex(0);
             setCurrentSectionDetail(currentPartsDetail[section_id]);
             setShowMarkdownEditter(true);
-            setSelectedSectionNameId('');
-            setSelectedSectionName('');
+            setEditSectionNameId('');
+            setEditSectionName('');
         }
 
 
@@ -68,6 +69,7 @@ const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdow
             </div>
         )
     }
+
     return (
         <div className = "select-section-container">
             {
@@ -76,10 +78,10 @@ const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdow
                     <>
                     <div key = {section_id} className = "section-container">
                         {
-                            selectedSectionNameId === section_id ?
+                            editSectionNameId === section_id ?
                             (
                                 <div className = "section-edit-button">
-                                    <textarea className = "section-edit-text-box" type="text" value={selectedSectionName} onChange={(e) => setSelectedSectionName(e.target.value)} />
+                                    <textarea className = "section-edit-text-box" type="text" value={editSectionName} onChange={(e) => setEditSectionName(e.target.value)} />
                                 </div>
                             ) : (
                             <>
@@ -98,9 +100,9 @@ const SelectSection = ({ currentPartsDetail, setCurrentGoalIndex, setShowMarkdow
                         )}
                     </div>
                     {
-                        selectedSectionNameId === section_id && (
+                        editSectionNameId === section_id && (
                             <div className = "section-save-cancel-buttons-container">
-                                <button onClick={() => setSelectedSectionNameId('')} className="cancel-section-button"><CircleX /></button>
+                                <button onClick={() => setEditSectionNameId('')} className="cancel-section-button"><CircleX /></button>
                                 <button onClick={handleSaveSectionNameClick} className = "save-section-button"><CircleCheck /></button>
                             </div>
                         )
